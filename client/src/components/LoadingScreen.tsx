@@ -3,16 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
-  const [phase, setPhase] = useState<'init' | 'loading' | 'done'>('init');
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setPhase('loading'), 200);
-    
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(interval);
-          setPhase('done');
           return 100;
         }
         const increment = prev < 40 ? 3 : prev < 70 ? 2 : prev < 90 ? 1.5 : 0.8;
@@ -21,7 +17,6 @@ export default function LoadingScreen() {
     }, 30);
 
     return () => {
-      clearTimeout(timer1);
       clearInterval(interval);
     };
   }, []);

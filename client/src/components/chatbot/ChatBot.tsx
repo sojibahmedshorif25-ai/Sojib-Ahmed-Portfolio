@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Sparkles, Loader2 } from 'lucide-react';
+import { X, Send, Sparkles, Loader2 } from 'lucide-react';
 import { useChatBot } from '../../hooks/useChatBot';
 
 const SUGGESTED_PROMPTS = [
