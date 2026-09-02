@@ -1,0 +1,470 @@
+import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Download, GitBranch, Link2, Mail, ChevronDown, MapPin, Terminal, Zap, Globe } from 'lucide-react';
+
+const terminalLines = [
+  { prompt: '$', command: 'whoami', output: 'Sojib Ahmed', delay: 500 },
+  { prompt: '$', command: 'role', output: 'MERN Stack Developer', delay: 1200 },
+  { prompt: '$', command: 'location', output: 'Rangpur, Bangladesh 🌏', delay: 2000 },
+  { prompt: '$', command: 'status', output: 'Building something awesome... 🚀', delay: 2800 },
+  { prompt: '$', command: 'available', output: 'true // Full-time | Freelance | Remote ✅', delay: 3600 },
+];
+
+const floatingTech = [
+  { name: 'React', color: '#61DAFB', x: 15, y: 20 },
+  { name: 'Node', color: '#339933', x: 80, y: 15 },
+  { name: 'MongoDB', color: '#47A248', x: 85, y: 75 },
+  { name: 'Express', color: '#888', x: 10, y: 70 },
+  { name: 'TypeScript', color: '#3178C6', x: 50, y: 5 },
+  { name: 'Next.js', color: '#fff', x: 90, y: 45 },
+];
+
+function TerminalWindow() {
+  const [visibleLines, setVisibleLines] = useState<number[]>([]);
+  const [typingLine, setTypingLine] = useState<number | null>(null);
+  const [typedChars, setTypedChars] = useState<Record<number, number>>({});
+
+  useEffect(() => {
+    terminalLines.forEach((line, i) => {
+      setTimeout(() => {
+        setTypingLine(i);
+        // Type command char by char
+        const chars = line.command.length;
+        for (let c = 0; c <= chars; c++) {
+          setTimeout(() => {
+            setTypedChars(prev => ({ ...prev, [i]: c }));
+            if (c === chars) {
+              setTimeout(() => {
+                setVisibleLines(prev => [...prev, i]);
+                setTypingLine(null);
+              }, 200);
+            }
+          }, c * 60);
+        }
+      }, line.delay);
+    });
+  }, []);
+
+  return (
+    <div className="terminal w-full max-w-sm">
+      <div className="terminal-header">
+        <div className="terminal-dot bg-[#FF5F56]" />
+        <div className="terminal-dot bg-[#FFBD2E]" />
+        <div className="terminal-dot bg-[#27C93F]" />
+        <span className="ml-2 text-xs text-[var(--color-text-secondary)]">sojib@portfolio ~ bash</span>
+      </div>
+      <div className="terminal-body space-y-1 min-h-[180px]">
+        {terminalLines.map((line, i) => {
+          const isTyping = typingLine === i;
+          const isDone = visibleLines.includes(i);
+          const charCount = typedChars[i] || 0;
+
+          if (!isTyping && !isDone) return null;
+
+          return (
+            <div key={i} className="space-y-0.5">
+              <div className="flex items-center gap-2">
+                <span className="terminal-prompt">{line.prompt}</span>
+                <span className="terminal-text">
+                  {isTyping ? line.command.slice(0, charCount) : line.command}
+                  {isTyping && <span className="terminal-cursor" />}
+                </span>
+              </div>
+              {isDone && (
+                <motion.div
+                  initial={{ opacity: 0, x: -4 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="terminal-dim pl-4"
+                >
+                  {line.output}
+                </motion.div>
+              )}
+            </div>
+          );
+        })}
+        {typingLine === null && visibleLines.length === terminalLines.length && (
+          <div className="flex items-center gap-2 mt-1">
+            <span className="terminal-prompt">$</span>
+            <span className="terminal-cursor" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function Hero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const animRef = useRef<number>();
+
+  // Three.js-style particle canvas
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles: { x: number; y: number; vx: number; vy: number; r: number; alpha: number; color: string }[] = [];
+    const colors = ['rgba(124,58,237,', 'rgba(6,182,212,', 'rgba(16,185,129,'];
+
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+        alpha: Math.random() * 0.5 + 0.2,
+        color: colors[Math.floor(Math.random() * colors.length)],
+      });
+    }
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Mouse influence
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
+
+      particles.forEach(p => {
+        // Mouse attraction
+        const dx = mx - p.x;
+        const dy = my - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          p.vx += (dx / dist) * 0.02;
+          p.vy += (dy / dist) * 0.02;
+        }
+
+        p.vx *= 0.99;
+        p.vy *= 0.99;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `${p.color}${p.alpha})`;
+        ctx.fill();
+      });
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(124,58,237,${(1 - d / 100) * 0.15})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      animRef.current = requestAnimationFrame(draw);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    };
+
+    draw();
+    canvas.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+      window.removeEventListener('resize', resize);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  return (
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      {/* Particle canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+        style={{ zIndex: 0 }}
+        aria-hidden="true"
+      />
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 grid-pattern opacity-50" aria-hidden="true" />
+
+      {/* Gradient orbs */}
+      <div className="orb orb-violet absolute top-20 left-[-100px] w-[500px] h-[500px] opacity-20" aria-hidden="true" />
+      <div className="orb orb-cyan absolute bottom-20 right-[-100px] w-[400px] h-[400px] opacity-15" aria-hidden="true" />
+
+      <div className="container-custom relative z-10 py-20">
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+          {/* Left Content - 60% */}
+          <div className="lg:col-span-3">
+            {/* Status badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 mb-6"
+            >
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass border border-[rgba(16,185,129,0.3)]">
+                <div className="status-dot" />
+                <span className="text-xs font-semibold text-[#10B981] tracking-wider uppercase">
+                  Available for Freelance & Full-Time
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Greeting */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <p className="text-lg text-[var(--color-text-secondary)] mb-2 font-medium">
+                Hey, I'm 👋
+              </p>
+              <h1 className="text-[clamp(48px,7vw,88px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-4">
+                Sojib Ahmed
+              </h1>
+            </motion.div>
+
+            {/* Role with gradient */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-5"
+            >
+              <h2 className="text-[clamp(20px,3vw,32px)] font-bold leading-snug text-[var(--color-text-primary)]">
+                Building Digital Experiences{' '}
+                <span className="gradient-text">That Actually Make an Impact.</span>
+              </h2>
+            </motion.div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-base text-[var(--color-text-secondary)] leading-relaxed max-w-xl mb-6"
+            >
+              I build scalable, high-performance and user-focused web applications using modern JavaScript technologies — from beautiful frontends to robust backends.
+            </motion.p>
+
+            {/* Social proof stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap items-center gap-6 mb-8"
+            >
+              {[
+                { value: '8+', label: 'Months Learning' },
+                { value: '10+', label: 'Projects Built' },
+                { value: '15+', label: 'Technologies' },
+                { value: '100%', label: 'Passion' },
+              ].map(({ value, label }) => (
+                <div key={label} className="text-center">
+                  <div className="text-2xl font-black gradient-text leading-none">{value}</div>
+                  <div className="text-xs text-[var(--color-text-secondary)] mt-0.5">{label}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap gap-3 mb-8"
+            >
+              <motion.button
+                whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(124,58,237,0.4)' }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                className="btn-primary"
+                id="hero-view-work"
+              >
+                View My Work
+                <ArrowRight size={16} />
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="btn-secondary"
+                id="hero-lets-work"
+              >
+                Let's Work Together
+              </motion.button>
+
+              <motion.a
+                href="/resume.pdf"
+                download
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="btn-ghost"
+                id="hero-download-resume"
+              >
+                <Download size={15} />
+                Resume
+              </motion.a>
+            </motion.div>
+
+            {/* Social links */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="flex items-center gap-3"
+            >
+              <span className="text-xs text-[var(--color-text-secondary)]">Find me on:</span>
+              {[
+                { icon: GitBranch, href: 'https://GitBranch.com', label: 'GitBranch', id: 'social-GitBranch' },
+                { icon: Link2, href: 'https://Link2.com', label: 'Link2', id: 'social-Link2' },
+                { icon: Mail, href: 'mailto:sojibahmedshorif998@gmail.com', label: 'Email', id: 'social-email' },
+              ].map(({ icon: Icon, href, label, id }) => (
+                <motion.a
+                  key={id}
+                  id={id}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="social-icon"
+                  aria-label={label}
+                >
+                  <Icon size={17} />
+                </motion.a>
+              ))}
+              <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] ml-1">
+                <MapPin size={12} className="text-[#7C3AED]" />
+                Rangpur, Bangladesh
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right Panel - 40% */}
+          <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, type: 'spring', stiffness: 100 }}
+              className="relative"
+            >
+              {/* Developer Command Center */}
+              <div className="relative space-y-4">
+                {/* Profile / Avatar Card */}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  className="glass rounded-2xl p-5 border border-[rgba(124,58,237,0.2)]"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    {/* Avatar */}
+                    <div className="relative">
+                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(124,58,237,0.3)]">
+                        <img src="/images/hero.jpg" alt="Sojib Ahmed" className="w-full h-full object-cover" />
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#10B981] rounded-full border-2 border-[#050508]" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-[var(--color-text-primary)]">Sojib Ahmed</div>
+                      <div className="text-sm text-[#8B5CF6]">MERN Stack Developer</div>
+                      <div className="flex items-center gap-1 mt-1">
+                        <div className="status-dot" style={{ width: 6, height: 6 }} />
+                        <span className="text-xs text-[#10B981]">Open to work</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tech stack row */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {['React', 'Node.js', 'MongoDB', 'TypeScript', 'Next.js'].map(tech => (
+                      <span key={tech} className="tech-badge text-[11px]">{tech}</span>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Terminal */}
+                <TerminalWindow />
+
+                {/* Stats grid */}
+                <div className="grid grid-cols-3 gap-3">
+                  {[
+                    { icon: Globe, label: 'Projects', value: '10+' },
+                    { icon: Zap, label: 'Technologies', value: '15+' },
+                    { icon: Terminal, label: 'Commits', value: '200+' },
+                  ].map(({ icon: Icon, label, value }) => (
+                    <motion.div
+                      key={label}
+                      whileHover={{ scale: 1.05, borderColor: 'rgba(124,58,237,0.5)' }}
+                      className="glass rounded-xl p-3 text-center border border-[rgba(124,58,237,0.15)] transition-all"
+                    >
+                      <Icon size={16} className="text-[#7C3AED] mx-auto mb-1" />
+                      <div className="text-lg font-bold gradient-text">{value}</div>
+                      <div className="text-[10px] text-[var(--color-text-secondary)]">{label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Floating tech icons */}
+                {floatingTech.map((tech, i) => (
+                  <motion.div
+                    key={tech.name}
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+                    className="absolute hidden xl:flex items-center justify-center w-10 h-10 rounded-xl text-xs font-bold glass border border-[rgba(124,58,237,0.2)]"
+                    style={{
+                      left: `${tech.x}%`,
+                      top: `${tech.y}%`,
+                      color: tech.color,
+                      transform: `translate(-50%, -50%)`,
+                      zIndex: 10,
+                    }}
+                    title={tech.name}
+                  >
+                    {tech.name.slice(0, 2)}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <span className="text-xs text-[var(--color-text-secondary)] tracking-wider uppercase">
+            Scroll to explore
+          </span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronDown size={20} className="text-[#7C3AED]" />
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
