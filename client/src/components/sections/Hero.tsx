@@ -96,7 +96,7 @@ function TerminalWindow() {
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const animRef = useRef<number>();
+  const animRef = useRef<number>(0);
 
   // Three.js-style particle canvas
   useEffect(() => {

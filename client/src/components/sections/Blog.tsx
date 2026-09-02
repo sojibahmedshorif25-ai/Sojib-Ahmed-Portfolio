@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Clock, BookOpen, Tag, ArrowRight, Search, TrendingUp } from 'lucide-react';
+import { Clock, BookOpen, ArrowRight, Search, TrendingUp } from 'lucide-react';
 
 const blogPosts = [
   {
@@ -118,7 +118,7 @@ export default function Blog() {
         </motion.div>
 
         {/* Featured Post */}
-        {blogPosts.filter(p => p.featured).map((post, i) => (
+        {blogPosts.filter(p => p.featured).map((post) => (
           <motion.article
             key={post.id}
             initial={{ opacity: 0, y: 30 }}

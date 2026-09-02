@@ -199,14 +199,14 @@ export default function Projects() {
 
                     <div className="flex items-center gap-2">
                       <motion.a
-                        href={project.GitBranchUrl}
+                        href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
                         style={{ background: 'rgba(124,58,237,0.08)' }}
-                        aria-label={`${project.title} GitBranch repository`}
+                        aria-label={`${project.title} GitHub repository`}
                       >
                         <GitBranch size={15} />
                       </motion.a>

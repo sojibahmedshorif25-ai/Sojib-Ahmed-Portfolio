@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, LayoutDashboard, Briefcase, FileText, MessageSquare, Star, Award, Settings, BarChart2, LogOut, Eye, Edit2, Trash2 } from 'lucide-react';
 
@@ -100,7 +100,6 @@ function LoginForm({ onLogin }: { onLogin: () => void }) {
 
 function Dashboard() {
   const [activeNav, setActiveNav] = useState('overview');
-  const [onLogout, setOnLogout] = useState(false);
 
   return (
     <div className="min-h-screen flex" style={{ background: '#050508' }}>
