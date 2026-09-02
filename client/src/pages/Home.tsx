@@ -12,21 +12,37 @@ import Contact from '../components/sections/Contact';
 import FinalCTA from '../components/sections/FinalCTA';
 import TrustBar from '../components/sections/TrustBar';
 
+function Separator() {
+  return <div className="section-separator" />;
+}
+
 export default function Home() {
   return (
     <>
       <Hero />
+      <Separator />
       <TrustBar />
+      <Separator />
       <About />
+      <Separator />
       <Skills />
+      <Separator />
       <Projects />
+      <Separator />
       <Services />
+      <Separator />
       <Process />
+      <Separator />
       <Certificates />
+      <Separator />
       <GitHub />
+      <Separator />
       <Testimonials />
+      <Separator />
       <Blog />
+      <Separator />
       <Contact />
+      <Separator />
       <FinalCTA />
     </>
   );
