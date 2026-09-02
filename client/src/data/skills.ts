@@ -1,5 +1,5 @@
 // ============================
-// SKILLS DATA
+// SKILLS DATA WITH REAL ICONS
 // ============================
 
 export interface Skill {
@@ -7,7 +7,7 @@ export interface Skill {
   level: 'Expert' | 'Advanced' | 'Intermediate';
   projects: string;
   description: string;
-  icon: string; // emoji or SVG path
+  icon: string;
   color: string;
   percentage: number;
 }
@@ -24,14 +24,14 @@ export const skillCategories: SkillCategory[] = [
     label: 'Frontend',
     skills: [
       { name: 'React.js', level: 'Expert', projects: '8+ projects', description: 'Component architecture, hooks, performance optimization', icon: '⚛️', color: '#61DAFB', percentage: 95 },
-      { name: 'Next.js', level: 'Advanced', projects: '3+ projects', description: 'SSR, SSG, App Router, API routes, middleware', icon: '▲', color: '#ffffff', percentage: 85 },
-      { name: 'TypeScript', level: 'Advanced', projects: '4+ projects', description: 'Type safety, generics, interfaces, advanced types', icon: '📘', color: '#3178C6', percentage: 83 },
-      { name: 'JavaScript', level: 'Expert', projects: 'All projects', description: 'ES6+, async/await, closures, prototype chain', icon: '🟨', color: '#F7DF1E', percentage: 95 },
+      { name: 'Next.js', level: 'Advanced', projects: '3+ projects', description: 'SSR, SSG, App Router, API routes, middleware', icon: '▲', color: '#000000', percentage: 85 },
+      { name: 'TypeScript', level: 'Advanced', projects: '4+ projects', description: 'Type safety, generics, interfaces, advanced types', icon: 'TS', color: '#3178C6', percentage: 83 },
+      { name: 'JavaScript', level: 'Expert', projects: 'All projects', description: 'ES6+, async/await, closures, prototype chain', icon: 'JS', color: '#F7DF1E', percentage: 95 },
       { name: 'Tailwind CSS', level: 'Expert', projects: 'All projects', description: 'Utility-first styling, responsive design, dark mode', icon: '🌊', color: '#06B6D4', percentage: 95 },
-      { name: 'Framer Motion', level: 'Advanced', projects: '5+ projects', description: 'Animations, gestures, layout transitions, variants', icon: '🎬', color: '#BB4B96', percentage: 82 },
-      { name: 'GSAP', level: 'Intermediate', projects: '3+ projects', description: 'ScrollTrigger, timeline animations, advanced effects', icon: '⚡', color: '#88CE02', percentage: 70 },
-      { name: 'HTML5', level: 'Expert', projects: 'All projects', description: 'Semantic markup, accessibility, SEO, Canvas', icon: '🌐', color: '#E34F26', percentage: 98 },
-      { name: 'CSS3', level: 'Expert', projects: 'All projects', description: 'Flexbox, Grid, animations, custom properties', icon: '🎨', color: '#1572B6', percentage: 95 },
+      { name: 'Framer Motion', level: 'Advanced', projects: '5+ projects', description: 'Animations, gestures, layout transitions, variants', icon: 'FM', color: '#BB4B96', percentage: 82 },
+      { name: 'GSAP', level: 'Intermediate', projects: '3+ projects', description: 'ScrollTrigger, timeline animations, advanced effects', icon: 'GS', color: '#88CE02', percentage: 70 },
+      { name: 'HTML5', level: 'Expert', projects: 'All projects', description: 'Semantic markup, accessibility, SEO, Canvas', icon: 'H5', color: '#E34F26', percentage: 98 },
+      { name: 'CSS3', level: 'Expert', projects: 'All projects', description: 'Flexbox, Grid, animations, custom properties', icon: 'C3', color: '#1572B6', percentage: 95 },
     ],
   },
   {
@@ -39,10 +39,10 @@ export const skillCategories: SkillCategory[] = [
     label: 'Backend',
     skills: [
       { name: 'Node.js', level: 'Expert', projects: 'All backend', description: 'Event loop, streams, middleware, cluster', icon: '🟢', color: '#339933', percentage: 92 },
-      { name: 'Express.js', level: 'Expert', projects: 'All backend', description: 'REST API design, middleware, routing, error handling', icon: '⚙️', color: '#ffffff', percentage: 92 },
+      { name: 'Express.js', level: 'Expert', projects: 'All backend', description: 'REST API design, middleware, routing, error handling', icon: 'EX', color: '#000000', percentage: 92 },
       { name: 'REST API', level: 'Expert', projects: 'All projects', description: 'CRUD operations, versioning, documentation', icon: '🔌', color: '#FF6C37', percentage: 95 },
-      { name: 'GraphQL', level: 'Intermediate', projects: '2+ projects', description: 'Schema design, resolvers, Apollo Server', icon: '📊', color: '#E10098', percentage: 68 },
-      { name: 'Socket.IO', level: 'Advanced', projects: '3+ projects', description: 'Real-time events, rooms, namespaces, scaling', icon: '🔁', color: '#010101', percentage: 80 },
+      { name: 'GraphQL', level: 'Intermediate', projects: '2+ projects', description: 'Schema design, resolvers, Apollo Server', icon: 'GQ', color: '#E10098', percentage: 68 },
+      { name: 'Socket.IO', level: 'Advanced', projects: '3+ projects', description: 'Real-time events, rooms, namespaces, scaling', icon: '⚡', color: '#010101', percentage: 80 },
     ],
   },
   {
@@ -50,9 +50,9 @@ export const skillCategories: SkillCategory[] = [
     label: 'Database',
     skills: [
       { name: 'MongoDB', level: 'Expert', projects: 'All projects', description: 'Aggregation pipeline, indexing, Atlas, transactions', icon: '🍃', color: '#47A248', percentage: 92 },
-      { name: 'Mongoose', level: 'Expert', projects: 'All projects', description: 'Schema design, virtuals, middleware, population', icon: '🍃', color: '#880000', percentage: 92 },
+      { name: 'Mongoose', level: 'Expert', projects: 'All projects', description: 'Schema design, virtuals, middleware, population', icon: 'MG', color: '#880000', percentage: 92 },
       { name: 'PostgreSQL', level: 'Intermediate', projects: '2+ projects', description: 'Relational modeling, joins, transactions', icon: '🐘', color: '#336791', percentage: 65 },
-      { name: 'Prisma', level: 'Advanced', projects: '3+ projects', description: 'ORM, migrations, type-safe queries', icon: '◆', color: '#2D3748', percentage: 78 },
+      { name: 'Prisma', level: 'Advanced', projects: '3+ projects', description: 'ORM, migrations, type-safe queries', icon: 'PR', color: '#2D3748', percentage: 78 },
       { name: 'Firebase', level: 'Advanced', projects: '4+ projects', description: 'Firestore, Realtime DB, Storage, hosting', icon: '🔥', color: '#FFCA28', percentage: 83 },
     ],
   },
@@ -70,9 +70,9 @@ export const skillCategories: SkillCategory[] = [
     id: 'state',
     label: 'State Mgmt',
     skills: [
-      { name: 'Redux Toolkit', level: 'Advanced', projects: '4+ projects', description: 'RTK Query, createSlice, async thunks', icon: '🔄', color: '#764ABC', percentage: 82 },
+      { name: 'Redux Toolkit', level: 'Advanced', projects: '4+ projects', description: 'RTK Query, createSlice, async thunks', icon: 'RT', color: '#764ABC', percentage: 82 },
       { name: 'Zustand', level: 'Advanced', projects: '3+ projects', description: 'Lightweight global state, middleware, persist', icon: '🐻', color: '#443E38', percentage: 85 },
-      { name: 'TanStack Query', level: 'Advanced', projects: '5+ projects', description: 'Server state, caching, optimistic updates', icon: '🔍', color: '#FF4154', percentage: 83 },
+      { name: 'TanStack Query', level: 'Advanced', projects: '5+ projects', description: 'Server state, caching, optimistic updates', icon: 'TQ', color: '#FF4154', percentage: 83 },
     ],
   },
   {
@@ -108,7 +108,7 @@ export const skillCategories: SkillCategory[] = [
     id: 'deployment',
     label: 'Deployment',
     skills: [
-      { name: 'Vercel', level: 'Expert', projects: 'All frontend', description: 'Edge functions, previews, analytics, domains', icon: '▲', color: '#ffffff', percentage: 95 },
+      { name: 'Vercel', level: 'Expert', projects: 'All frontend', description: 'Edge functions, previews, analytics, domains', icon: '▲', color: '#000000', percentage: 95 },
       { name: 'Netlify', level: 'Advanced', projects: '3+ projects', description: 'CI/CD, serverless functions, forms', icon: '🌐', color: '#00C7B7', percentage: 85 },
       { name: 'Render', level: 'Advanced', projects: '4+ projects', description: 'Web services, PostgreSQL, auto-deploy', icon: '🚀', color: '#46E3B7', percentage: 82 },
       { name: 'Railway', level: 'Intermediate', projects: '2+ projects', description: 'Full-stack deployments, databases, volumes', icon: '🚂', color: '#B03060', percentage: 70 },
@@ -119,7 +119,7 @@ export const skillCategories: SkillCategory[] = [
     label: 'DevOps',
     skills: [
       { name: 'Docker', level: 'Intermediate', projects: '2+ projects', description: 'Containerization, docker-compose, Dockerfile', icon: '🐳', color: '#2496ED', percentage: 65 },
-      { name: 'GitHub Actions', level: 'Advanced', projects: '3+ projects', description: 'CI/CD pipelines, automated testing, deployment', icon: '⚙️', color: '#2088FF', percentage: 78 },
+      { name: 'GitHub Actions', level: 'Advanced', projects: '3+ projects', description: 'CI/CD pipelines, automated testing, deployment', icon: 'GH', color: '#2088FF', percentage: 78 },
       { name: 'CI/CD', level: 'Advanced', projects: '3+ projects', description: 'Automated pipelines, staging, rollback strategies', icon: '🔄', color: '#10B981', percentage: 78 },
     ],
   },
