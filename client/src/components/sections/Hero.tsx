@@ -193,7 +193,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12">
       {/* Particle canvas */}
       <canvas
         ref={canvasRef}
@@ -209,8 +209,8 @@ export default function Hero() {
       <div className="orb orb-violet absolute top-20 left-[-100px] w-[500px] h-[500px] opacity-20" aria-hidden="true" />
       <div className="orb orb-cyan absolute bottom-20 right-[-100px] w-[400px] h-[400px] opacity-15" aria-hidden="true" />
 
-      <div className="container-custom relative z-10 py-24">
-        <div className="grid lg:grid-cols-5 gap-16 items-center">
+      <div className="container-custom relative z-10 py-16">
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
           {/* Left Content - 60% */}
           <div className="lg:col-span-3">
             {/* Status badge */}
@@ -218,9 +218,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 mb-8"
+              className="inline-flex items-center gap-2 mb-6"
             >
-              <div className="flex items-center gap-2 px-5 py-2.5 rounded-full glass border border-[rgba(16,185,129,0.3)]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass border border-[rgba(16,185,129,0.3)]">
                 <div className="status-dot" />
                 <span className="text-xs font-semibold text-[#10B981] tracking-wider uppercase">
                   Available for Freelance & Full-Time
@@ -234,10 +234,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-lg text-[var(--color-text-secondary)] mb-3 font-medium">
+              <p className="text-base text-[var(--color-text-secondary)] mb-2 font-medium">
                 Hey, I'm 👋
               </p>
-              <h1 className="text-[clamp(48px,7vw,88px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-6">
+              <h1 className="text-[clamp(44px,7vw,80px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-4">
                 Sojib Ahmed
               </h1>
             </motion.div>
@@ -247,9 +247,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-8"
+              className="mb-5"
             >
-              <h2 className="text-[clamp(20px,3vw,32px)] font-bold leading-snug text-[var(--color-text-primary)]">
+              <h2 className="text-[clamp(18px,3vw,28px)] font-bold leading-snug text-[var(--color-text-primary)]">
                 Building Digital Experiences{' '}
                 <span className="gradient-text">That Actually Make an Impact.</span>
               </h2>
@@ -260,7 +260,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-base text-[var(--color-text-secondary)] leading-relaxed max-w-xl mb-10"
+              className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xl mb-6"
             >
               I build scalable, high-performance and user-focused web applications using modern JavaScript technologies — from beautiful frontends to robust backends.
             </motion.p>
@@ -270,7 +270,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap items-center gap-8 mb-10"
+              className="flex flex-wrap items-center gap-6 mb-8"
             >
               {[
                 { value: '8+', label: 'Months Learning' },
@@ -279,8 +279,8 @@ export default function Hero() {
                 { value: '100%', label: 'Passion' },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center">
-                  <div className="text-2xl font-black gradient-text leading-none">{value}</div>
-                  <div className="text-xs text-[var(--color-text-secondary)] mt-1">{label}</div>
+                  <div className="text-xl font-black gradient-text leading-none">{value}</div>
+                  <div className="text-[11px] text-[var(--color-text-secondary)] mt-1">{label}</div>
                 </div>
               ))}
             </motion.div>
@@ -290,7 +290,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap gap-4 mb-10"
+              className="flex flex-wrap gap-3 mb-8"
             >
               <motion.button
                 whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(124,58,237,0.4)' }}

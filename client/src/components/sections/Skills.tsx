@@ -76,9 +76,9 @@ export default function Skills() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <div className="section-badge mx-auto w-fit mb-4">
+          <div className="section-badge mx-auto w-fit mb-3">
             <span>⚡</span> Skills
           </div>
           <h2 className="section-heading">My Arsenal</h2>
@@ -92,7 +92,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-14"
+          className="flex flex-wrap justify-center gap-2 mb-10"
           role="tablist"
           aria-label="Skill categories"
         >
@@ -134,7 +134,7 @@ export default function Skills() {
             id={`skills-panel-${activeTab}`}
             role="tabpanel"
             aria-labelledby={`skills-tab-${activeTab}`}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
           >
             {activeCategory?.skills.map((skill, i) => {
               const levelStyle = levelColors[skill.level];
@@ -148,7 +148,7 @@ export default function Skills() {
                   transition={{ duration: 0.3, delay: i * 0.05 }}
                   onHoverStart={() => setHoveredSkill(`${activeTab}-${skill.name}`)}
                   onHoverEnd={() => setHoveredSkill(null)}
-                  className="card p-6 cursor-default relative overflow-hidden group"
+                  className="card p-5 cursor-default relative overflow-hidden group"
                   style={{ '--hover-color': skill.color } as React.CSSProperties}
                 >
                   {/* Hover glow */}
@@ -223,7 +223,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-5"
+          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4"
         >
           {[
             { label: 'Expert Skills', count: skillCategories.flatMap(c => c.skills).filter(s => s.level === 'Expert').length, color: '#10B981' },
@@ -234,10 +234,10 @@ export default function Skills() {
             <motion.div
               key={label}
               whileHover={{ scale: 1.03 }}
-              className="card p-6 text-center"
+              className="card p-5 text-center"
             >
-              <div className="text-3xl font-black mb-2" style={{ color }}>{count}+</div>
-              <div className="text-xs text-[var(--color-text-secondary)]">{label}</div>
+              <div className="text-2xl font-black mb-1" style={{ color }}>{count}+</div>
+              <div className="text-[11px] text-[var(--color-text-secondary)]">{label}</div>
             </motion.div>
           ))}
         </motion.div>

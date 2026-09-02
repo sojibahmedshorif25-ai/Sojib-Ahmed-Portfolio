@@ -57,14 +57,14 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   font-family: 'Inter', system-ui, sans-serif;
-  line-height: 2;
-  letter-spacing: 0.015em;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   overflow-x: hidden;
   cursor: none;
 }
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
 }
 
 p:last-child {
@@ -129,19 +129,19 @@ body.light {
 .container-custom {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
 }
 
 .section-padding {
-  padding: 200px 0;
+  padding: 140px 0;
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 120px 0;
+    padding: 80px 0;
   }
   .container-custom {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 }
 
@@ -263,7 +263,7 @@ body.light {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 22px;
+  padding: 8px 18px;
   border-radius: 100px;
   font-size: 13px;
   font-weight: 600;
@@ -272,25 +272,25 @@ body.light {
   border: 1px solid var(--color-border-light);
   background: rgba(124, 58, 237, 0.08);
   color: #8B5CF6;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .section-heading {
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(36px, 5vw, 56px);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--color-text-primary);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .section-subheading {
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(16px, 1.8vw, 20px);
   color: var(--color-text-secondary);
-  max-width: 650px;
-  line-height: 1.9;
-  margin-top: 40px;
-  margin-bottom: 64px;
+  max-width: 600px;
+  line-height: 1.8;
+  margin-top: 28px;
+  margin-bottom: 40px;
 }
 
 /* ===== BUTTON STYLES ===== */
@@ -377,7 +377,7 @@ body.light {
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: var(--shadow-card);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
@@ -727,7 +727,7 @@ body.light {
 .divider {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--color-border-light), transparent);
-  margin: 100px 0;
+  margin: 60px 0;
 }
 
 .highlight-box {
@@ -735,7 +735,7 @@ body.light {
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-violet);
   border-radius: 0 12px 12px 0;
-  padding: 20px 24px;
+  padding: 16px 20px;
 }
 
 /* ===== REDUCED MOTION ===== */

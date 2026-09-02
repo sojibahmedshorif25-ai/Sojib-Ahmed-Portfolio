@@ -40,9 +40,9 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <div className="section-badge mx-auto w-fit mb-4">
+          <div className="section-badge mx-auto w-fit mb-3">
             <span>🚀</span> Projects
           </div>
           <h2 className="section-heading">Selected Work</h2>
@@ -56,7 +56,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center gap-3 mb-16"
+          className="flex justify-center gap-2 mb-12"
           role="tablist"
           aria-label="Project category filter"
         >
@@ -101,7 +101,7 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {filtered.map((project, i) => (
               <motion.article
@@ -126,37 +126,37 @@ export default function Projects() {
                   }}
                 />
 
-                <div className="p-8">
+                <div className="p-6">
                   {/* Header */}
-                  <div className="flex items-start justify-between gap-3 mb-5">
+                  <div className="flex items-start justify-between gap-3 mb-3">
                     <div>
                       {/* Category badge */}
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex items-center gap-2 mb-1">
                         <span className="tech-badge text-[10px]">{project.category === 'full-stack' ? 'Full Stack' : project.category === 'frontend' ? 'Frontend' : 'Backend'}</span>
-                        <span className="text-xs text-[var(--color-text-secondary)]">{project.year}</span>
+                        <span className="text-[11px] text-[var(--color-text-secondary)]">{project.year}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-[var(--color-text-primary)] group-hover:text-[#8B5CF6] transition-colors">
+                      <h3 className="text-lg font-bold text-[var(--color-text-primary)] group-hover:text-[#8B5CF6] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-sm text-[var(--color-text-secondary)] mt-1">{project.subtitle}</p>
+                      <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">{project.subtitle}</p>
                     </div>
 
                     {/* Number */}
-                    <div className="text-4xl font-black opacity-10 font-mono"
+                    <div className="text-3xl font-black opacity-10 font-mono"
                       style={{ color: project.color }}>
                       {String(i + 1).padStart(2, '0')}
                     </div>
                   </div>
 
                   {/* Problem / Solution preview */}
-                  <div className="mb-5 space-y-3">
+                  <div className="mb-4 space-y-2">
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-semibold text-[#EC4899] mt-0.5">Problem</span>
-                      <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{project.problem}</p>
+                      <span className="text-[11px] font-semibold text-[#EC4899] mt-0.5">Problem</span>
+                      <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">{project.problem}</p>
                     </div>
                     <div className="flex items-start gap-2">
-                      <span className="text-xs font-semibold text-[#10B981] mt-0.5">Solution</span>
-                      <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{project.solution}</p>
+                      <span className="text-[11px] font-semibold text-[#10B981] mt-0.5">Solution</span>
+                      <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">{project.solution}</p>
                     </div>
                   </div>
 
@@ -167,11 +167,11 @@ export default function Projects() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="mb-5 overflow-hidden"
+                        className="mb-4 overflow-hidden"
                       >
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-2 gap-1.5">
                           {project.features.slice(0, 4).map(feature => (
-                            <div key={feature} className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)]">
+                            <div key={feature} className="flex items-center gap-1.5 text-[11px] text-[var(--color-text-secondary)]">
                               <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: project.color }} />
                               {feature}
                             </div>
@@ -182,7 +182,7 @@ export default function Projects() {
                   </AnimatePresence>
 
                   {/* Tech stack */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.techStack.slice(0, 5).map(tech => (
                       <span key={tech} className="tech-badge text-[10px]">{tech}</span>
                     ))}
@@ -192,23 +192,23 @@ export default function Projects() {
                   </div>
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between pt-5 border-t border-[rgba(124,58,237,0.1)]">
-                    <span className="text-xs text-[var(--color-text-secondary)]">
+                  <div className="flex items-center justify-between pt-3 border-t border-[rgba(124,58,237,0.1)]">
+                    <span className="text-[11px] text-[var(--color-text-secondary)]">
                       Role: <span className="text-[var(--color-text-primary)] font-medium">{project.role}</span>
                     </span>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5">
                       <motion.a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className="w-9 h-9 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                        className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
                         style={{ background: 'rgba(124,58,237,0.08)' }}
                         aria-label={`${project.title} GitHub repository`}
                       >
-                        <GitBranch size={15} />
+                        <GitBranch size={14} />
                       </motion.a>
                       {project.category !== 'backend' && (
                         <motion.a
@@ -217,11 +217,11 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          className="w-9 h-9 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                          className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
                           style={{ background: 'rgba(124,58,237,0.08)' }}
                           aria-label={`${project.title} live demo`}
                         >
-                          <ExternalLink size={15} />
+                          <ExternalLink size={14} />
                         </motion.a>
                       )}
                       {project.docsUrl && (
@@ -230,12 +230,12 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05 }}
-                          className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
+                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all"
                           style={{ background: 'rgba(124,58,237,0.08)', color: '#8B5CF6', border: '1px solid rgba(124,58,237,0.2)' }}
                           aria-label={`${project.title} API docs`}
                         >
                           API Docs
-                          <ArrowRight size={11} />
+                          <ArrowRight size={10} />
                         </motion.a>
                       )}
                     </div>
@@ -256,9 +256,9 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          className="text-center mt-12"
         >
-          <p className="text-sm text-[var(--color-text-secondary)] mb-5">
+          <p className="text-sm text-[var(--color-text-secondary)] mb-4">
             All projects are available on GitHub with full documentation.
           </p>
           <motion.a

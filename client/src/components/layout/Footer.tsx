@@ -7,7 +7,6 @@ const footerLinks = {
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#about' },
   ],
   Services: [
     { label: 'Full Stack Dev', href: '#services' },

@@ -64,9 +64,9 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-14"
         >
-          <div className="section-badge mx-auto w-fit mb-4">
+          <div className="section-badge mx-auto w-fit mb-3">
             <span>📬</span> Contact
           </div>
           <h2 className="section-heading">
@@ -77,68 +77,68 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-16">
+        <div className="grid lg:grid-cols-5 gap-10">
           {/* Left info panel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-2 space-y-5"
           >
             {/* Status card */}
-            <div className="card p-7">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center font-bold text-white text-lg"
+            <div className="card p-5">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white text-base"
                   style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
                   SA
                 </div>
                 <div>
-                  <div className="font-bold text-[var(--color-text-primary)]">Sojib Ahmed</div>
-                  <div className="text-xs text-[#8B5CF6]">MERN Stack Developer</div>
+                  <div className="text-sm font-bold text-[var(--color-text-primary)]">Sojib Ahmed</div>
+                  <div className="text-[11px] text-[#8B5CF6]">MERN Stack Developer</div>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div>
-                  <div className="text-xs text-[var(--color-text-secondary)] mb-3 font-medium uppercase tracking-wider">Currently Available For:</div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="text-[10px] text-[var(--color-text-secondary)] mb-2 font-medium uppercase tracking-wider">Currently Available For:</div>
+                  <div className="flex flex-wrap gap-1.5">
                     {['Full-time', 'Freelance', 'Remote', 'Consulting'].map(type => (
-                      <span key={type} className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full"
+                      <span key={type} className="flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full"
                         style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', color: '#10B981' }}>
-                        <div className="status-dot" style={{ width: 5, height: 5 }} />
+                        <div className="status-dot" style={{ width: 4, height: 4 }} />
                         {type}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 pt-2">
-                  <Clock size={13} className="text-[#7C3AED]" />
-                  <span className="text-xs text-[var(--color-text-secondary)]">Usually replies within 2 hours</span>
+                <div className="flex items-center gap-2 pt-1">
+                  <Clock size={12} className="text-[#7C3AED]" />
+                  <span className="text-[11px] text-[var(--color-text-secondary)]">Usually replies within 2 hours</span>
                 </div>
               </div>
             </div>
 
             {/* Contact details */}
-            <div className="card p-7 space-y-5">
+            <div className="card p-5 space-y-3">
               {[
                 { icon: Mail, label: 'Email', value: 'sojibahmedshorif25@gmail.com', href: 'mailto:sojibahmedshorif25@gmail.com' },
                 { icon: Phone, label: 'Phone', value: '+880 1942791004', href: 'tel:+8801942791004' },
                 { icon: MapPin, label: 'Location', value: 'Rangpur, Bangladesh', href: null },
               ].map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                <div key={label} className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                     style={{ background: 'rgba(124,58,237,0.1)' }}>
-                    <Icon size={16} className="text-[#8B5CF6]" />
+                    <Icon size={14} className="text-[#8B5CF6]" />
                   </div>
                   <div>
-                    <div className="text-xs text-[var(--color-text-secondary)]">{label}</div>
+                    <div className="text-[10px] text-[var(--color-text-secondary)]">{label}</div>
                     {href ? (
-                      <a href={href} className="text-sm font-medium text-[var(--color-text-primary)] hover:text-[#8B5CF6] transition-colors">
+                      <a href={href} className="text-xs font-medium text-[var(--color-text-primary)] hover:text-[#8B5CF6] transition-colors">
                         {value}
                       </a>
                     ) : (
-                      <div className="text-sm font-medium text-[var(--color-text-primary)]">{value}</div>
+                      <div className="text-xs font-medium text-[var(--color-text-primary)]">{value}</div>
                     )}
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export default function Contact() {
             </div>
 
             {/* Social links */}
-            <div className="flex gap-4">
+            <div className="flex gap-2">
               {[
                 { icon: GitBranch, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub' },
                 { icon: Link2, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn' },
@@ -161,7 +161,7 @@ export default function Contact() {
                   className="social-icon"
                   aria-label={label}
                 >
-                  <Icon size={18} />
+                  <Icon size={16} />
                 </motion.a>
               ))}
             </div>
@@ -174,31 +174,31 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-3"
           >
-            <div className="card p-10">
+            <div className="card p-6">
               {isSuccess ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center py-20 text-center"
+                  className="flex flex-col items-center justify-center py-16 text-center"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                    className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
                     style={{ background: 'rgba(16,185,129,0.15)' }}
                   >
-                    <CheckCircle2 size={40} className="text-[#10B981]" />
+                    <CheckCircle2 size={32} className="text-[#10B981]" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Message Sent!</h3>
-                  <p className="text-[var(--color-text-secondary)]">Got it! I'll reply within 2 hours.</p>
+                  <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Message Sent!</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)]">Got it! I'll reply within 2 hours.</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
-                  <div className="grid sm:grid-cols-2 gap-5">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+                  <div className="grid sm:grid-cols-2 gap-3">
                     {/* Name */}
                     <div>
-                      <label htmlFor="contact-name" className="block text-xs font-semibold text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider">
+                      <label htmlFor="contact-name" className="block text-[11px] font-semibold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
                         Your Name *
                       </label>
                       <input
@@ -206,17 +206,17 @@ export default function Contact() {
                         type="text"
                         placeholder="John Doe"
                         {...register('name')}
-                        className={`w-full px-4 py-3.5 rounded-xl text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 ${
+                        className={`w-full px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 ${
                           errors.name ? 'border-red-500 focus:ring-red-500' : 'focus:ring-[rgba(124,58,237,0.5)] focus:border-[rgba(124,58,237,0.5)]'
                         }`}
                         style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)' }}
                       />
-                      {errors.name && <p className="mt-1.5 text-xs text-red-400">{errors.name.message}</p>}
+                      {errors.name && <p className="mt-1 text-[10px] text-red-400">{errors.name.message}</p>}
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="contact-email" className="block text-xs font-semibold text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider">
+                      <label htmlFor="contact-email" className="block text-[11px] font-semibold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
                         Email Address *
                       </label>
                       <input
@@ -224,18 +224,18 @@ export default function Contact() {
                         type="email"
                         placeholder="john@example.com"
                         {...register('email')}
-                        className={`w-full px-4 py-3.5 rounded-xl text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 ${
+                        className={`w-full px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 ${
                           errors.email ? 'border-red-500 focus:ring-red-500' : 'focus:ring-[rgba(124,58,237,0.5)] focus:border-[rgba(124,58,237,0.5)]'
                         }`}
                         style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)' }}
                       />
-                      {errors.email && <p className="mt-1.5 text-xs text-red-400">{errors.email.message}</p>}
+                      {errors.email && <p className="mt-1 text-[10px] text-red-400">{errors.email.message}</p>}
                     </div>
                   </div>
 
                   {/* Subject */}
                   <div>
-                    <label htmlFor="contact-subject" className="block text-xs font-semibold text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-subject" className="block text-[11px] font-semibold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
                       Subject *
                     </label>
                     <input
@@ -243,30 +243,30 @@ export default function Contact() {
                       type="text"
                       placeholder="Project inquiry, Job opportunity, Collaboration..."
                       {...register('subject')}
-                      className={`w-full px-4 py-3.5 rounded-xl text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 ${
+                      className={`w-full px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 ${
                         errors.subject ? 'border-red-500 focus:ring-red-500' : 'focus:ring-[rgba(124,58,237,0.5)] focus:border-[rgba(124,58,237,0.5)]'
                       }`}
                       style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)' }}
                     />
-                    {errors.subject && <p className="mt-1.5 text-xs text-red-400">{errors.subject.message}</p>}
+                    {errors.subject && <p className="mt-1 text-[10px] text-red-400">{errors.subject.message}</p>}
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="block text-xs font-semibold text-[var(--color-text-secondary)] mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-message" className="block text-[11px] font-semibold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
                       Message *
                     </label>
                     <textarea
                       id="contact-message"
-                      rows={7}
+                      rows={5}
                       placeholder="Tell me about your project, requirements, timeline..."
                       {...register('message')}
-                      className={`w-full px-4 py-3.5 rounded-xl text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 resize-none ${
+                      className={`w-full px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] transition-all outline-none focus:ring-1 resize-none ${
                         errors.message ? 'border-red-500 focus:ring-red-500' : 'focus:ring-[rgba(124,58,237,0.5)] focus:border-[rgba(124,58,237,0.5)]'
                       }`}
                       style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)' }}
                     />
-                    {errors.message && <p className="mt-1.5 text-xs text-red-400">{errors.message.message}</p>}
+                    {errors.message && <p className="mt-1 text-[10px] text-red-400">{errors.message.message}</p>}
                   </div>
 
                   {/* Submit */}
