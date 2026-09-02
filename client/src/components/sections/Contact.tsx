@@ -122,7 +122,7 @@ export default function Contact() {
             {/* Contact details */}
             <div className="card p-6 space-y-4">
               {[
-                { icon: Mail, label: 'Email', value: 'sojibahmedshorif998@gmail.com', href: 'mailto:sojibahmedshorif998@gmail.com' },
+                { icon: Mail, label: 'Email', value: 'sojibahmedshorif25@gmail.com', href: 'mailto:sojibahmedshorif25@gmail.com' },
                 { icon: Phone, label: 'Phone', value: '+880 1942791004', href: 'tel:+8801942791004' },
                 { icon: MapPin, label: 'Location', value: 'Rangpur, Bangladesh', href: null },
               ].map(({ icon: Icon, label, value, href }) => (
@@ -148,9 +148,9 @@ export default function Contact() {
             {/* Social links */}
             <div className="flex gap-3">
               {[
-                { icon: GitBranch, href: 'https://GitBranch.com', label: 'GitBranch' },
-                { icon: Link2, href: 'https://Link2.com', label: 'Link2' },
-                { icon: Mail, href: 'mailto:sojibahmedshorif998@gmail.com', label: 'Email' },
+                { icon: GitBranch, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub' },
+                { icon: Link2, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:sojibahmedshorif25@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}

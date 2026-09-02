@@ -50,7 +50,7 @@ export default function FinalCTA() {
             </motion.button>
 
             <motion.a
-              href="mailto:sojibahmedshorif998@gmail.com"
+              href="mailto:sojibahmedshorif25@gmail.com"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="btn-secondary text-base px-8 py-4"

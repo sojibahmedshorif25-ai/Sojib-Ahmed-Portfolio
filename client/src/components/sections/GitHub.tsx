@@ -63,7 +63,7 @@ export default function GitHub() {
           className="text-center mb-14"
         >
           <div className="section-badge mx-auto w-fit mb-3">
-            <span>🔨</span> GitBranch
+            <span>🔨</span> GitHub
           </div>
           <h2 className="section-heading">Building in Public</h2>
           <p className="section-subheading mx-auto text-center">
@@ -148,11 +148,11 @@ export default function GitHub() {
                   <div className="flex items-center gap-1"><GitFork size={11} />{repo.forks}</div>
                 </div>
                 <a
-                  href={`https://GitBranch.com/sojibahmed/${repo.name}`}
+                  href={`https://github.com/sojibahmedshorif25-ai/${repo.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-[#8B5CF6] font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  id={`GitBranch-repo-${repo.name}`}
+                  id={`github-repo-${repo.name}`}
                 >
                   View <ArrowRight size={11} />
                 </a>
@@ -161,7 +161,7 @@ export default function GitHub() {
           ))}
         </div>
 
-        {/* GitBranch CTA */}
+        {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -169,16 +169,16 @@ export default function GitHub() {
           className="text-center"
         >
           <motion.a
-            href="https://GitBranch.com/sojibahmed"
+            href="https://github.com/sojibahmedshorif25-ai"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="btn-secondary inline-flex"
-            id="GitBranch-profile-link"
+            id="github-profile-link"
           >
             <GitBranch size={16} />
-            View GitBranch Profile
+            View GitHub Profile
             <ArrowRight size={15} />
           </motion.a>
         </motion.div>

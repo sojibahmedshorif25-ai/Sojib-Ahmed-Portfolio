@@ -335,9 +335,9 @@ export default function Hero() {
             >
               <span className="text-xs text-[var(--color-text-secondary)]">Find me on:</span>
               {[
-                { icon: GitBranch, href: 'https://GitBranch.com', label: 'GitBranch', id: 'social-GitBranch' },
-                { icon: Link2, href: 'https://Link2.com', label: 'Link2', id: 'social-Link2' },
-                { icon: Mail, href: 'mailto:sojibahmedshorif998@gmail.com', label: 'Email', id: 'social-email' },
+                { icon: GitBranch, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub', id: 'social-GitHub' },
+                { icon: Link2, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn', id: 'social-LinkedIn' },
+                { icon: Mail, href: 'mailto:sojibahmedshorif25@gmail.com', label: 'Email', id: 'social-email' },
               ].map(({ icon: Icon, href, label, id }) => (
                 <motion.a
                   key={id}

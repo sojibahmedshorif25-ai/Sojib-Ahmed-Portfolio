@@ -11,9 +11,9 @@ const FALLBACK_RESPONSES: Record<string, string> = {
   skills: "Sojib is proficient in the **MERN Stack** (MongoDB, Express.js, React.js, Node.js), TypeScript, Tailwind CSS, JWT, Firebase, Socket.IO, and AI integration with Gemini/OpenAI APIs. He has 15+ technologies in his arsenal!",
   projects: "Sojib has built **10+ projects** including:\n• **InvestProp AI** – AI-powered real estate platform\n• **Job Finder** – Full-stack job board\n• **Pet Adoption Platform** – Community website\n• **E-Commerce Platform** – With Stripe payments\n...and more! Check the Projects section for details.",
   services: "Sojib offers:\n• **Full Stack Web Development** (MERN)\n• **Frontend Development** (React/Next.js)\n• **Backend Development** (Node.js/Express)\n• **AI Integration** (Gemini/OpenAI)\n• **E-Commerce Development**\n• **Admin Dashboards**",
-  available: "Yes! Sojib is **currently available** for:\n✓ Full-time positions\n✓ Freelance projects\n✓ Remote work\n\nHe typically replies within 2 hours. Reach him at sojibahmedshorif998@gmail.com or +880 1942791004.",
+  available: "Yes! Sojib is **currently available** for:\n✓ Full-time positions\n✓ Freelance projects\n✓ Remote work\n\nHe typically replies within 2 hours. Reach him at sojibahmedshorif25@gmail.com or +880 1942791004.",
   experience: "Sojib completed an **8-month intensive MERN Stack program** at Programming Hero (Jan–Aug 2026). His journey:\n• Feb 2026: HTML, CSS, JavaScript\n• Mar 2026: React.js\n• Apr 2026: Node.js & Express\n• May 2026: MongoDB\n• Jun–Aug 2026: Full Stack + AI Integration",
-  contact: "You can reach Sojib at:\n📧 **Email:** sojibahmedshorif998@gmail.com\n📱 **Phone:** +880 1942791004\n📍 **Location:** Rangpur, Bangladesh\n\nOr use the **Contact form** on this page!",
+  contact: "You can reach Sojib at:\n📧 **Email:** sojibahmedshorif25@gmail.com\n📱 **Phone:** +880 1942791004\n📍 **Location:** Rangpur, Bangladesh\n\nOr use the **Contact form** on this page!",
 };
 
 function getFallbackResponse(query: string): string {
@@ -64,7 +64,7 @@ export function useChatBot() {
     setMessageCount(prev => prev + 1);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/chat`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: content }),

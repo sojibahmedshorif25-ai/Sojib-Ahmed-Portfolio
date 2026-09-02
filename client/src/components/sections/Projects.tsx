@@ -259,19 +259,19 @@ export default function Projects() {
           className="text-center mt-14"
         >
           <p className="text-sm text-[var(--color-text-secondary)] mb-4">
-            All projects are available on GitBranch with full documentation.
+            All projects are available on GitHub with full documentation.
           </p>
           <motion.a
-            href="https://GitBranch.com"
+            href="https://github.com/sojibahmedshorif25-ai"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(124,58,237,0.3)' }}
             whileTap={{ scale: 0.98 }}
             className="btn-secondary inline-flex"
-            id="view-all-GitBranch"
+            id="view-all-github"
           >
             <GitBranch size={16} />
-            View All on GitBranch
+            View All on GitHub
             <ArrowRight size={15} />
           </motion.a>
         </motion.div>

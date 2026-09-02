@@ -19,7 +19,7 @@ const mockStats = [
   { label: 'Total Views', value: '1,247', change: '+12%', color: '#7C3AED' },
   { label: 'Unique Visitors', value: '384', change: '+8%', color: '#06B6D4' },
   { label: 'Contact Messages', value: '23', change: '+5', color: '#10B981' },
-  { label: 'GitBranch Stars', value: '26', change: '+3', color: '#F59E0B' },
+  { label: 'GitHub Stars', value: '26', change: '+3', color: '#F59E0B' },
 ];
 
 function LoginForm({ onLogin }: { onLogin: () => void }) {

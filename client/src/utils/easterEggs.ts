@@ -92,7 +92,7 @@ function printConsoleArt() {
   
   console.log('%c👋 Hey there, fellow developer!', styles[1]);
   console.log('%c🔍 Inspecting code? I respect that.', styles[2]);
-  console.log('%c💼 Want to work together? → sojibahmedshorif998@gmail.com', styles[1]);
+  console.log('%c💼 Want to work together? → sojibahmedshorif25@gmail.com', styles[1]);
   console.log('%c⚡ Built with React + TypeScript + Passion', styles[2]);
   console.log('%c🚀 Open to Full-time | Freelance | Remote opportunities', styles[1]);
 }

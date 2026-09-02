@@ -13,11 +13,18 @@ const SUGGESTED_PROMPTS = [
 ];
 
 function renderMarkdown(text: string) {
-  return text
+  const html = text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/\n/g, '<br/>')
     .replace(/•/g, '•');
+  
+  // Basic sanitization - escape HTML tags except our formatting tags
+  return html
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/&lt;(strong|em|br)&gt;/g, '<$1>')
+    .replace(/&lt;\/(strong|em)&gt;/g, '</$1>');
 }
 
 export default function ChatBot() {

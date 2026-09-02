@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GitBranch, Link2, Mail, MapPin, Phone, Code2, Heart } from 'lucide-react';
+import { GitBranch as GitHubIcon, Link2 as LinkedInIcon, Mail, MapPin, Phone, Code2, Heart } from 'lucide-react';
 
 const footerLinks = {
   Navigation: [
@@ -7,7 +7,7 @@ const footerLinks = {
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
+    { label: 'Experience', href: '#about' },
   ],
   Services: [
     { label: 'Full Stack Dev', href: '#services' },
@@ -68,9 +68,9 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {[
-                { icon: GitBranch, href: 'https://GitBranch.com/sojibahmed', label: 'GitBranch' },
-                { icon: Link2, href: 'https://Link2.com/in/sojibahmed', label: 'Link2' },
-                { icon: Mail, href: 'mailto:sojibahmedshorif998@gmail.com', label: 'Email' },
+                { icon: GitHubIcon, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub' },
+                { icon: LinkedInIcon, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn' },
+                { icon: Mail, href: 'mailto:sojibahmedshorif25@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
@@ -91,7 +91,7 @@ export default function Footer() {
             <div className="mt-6 space-y-2">
               {[
                 { icon: MapPin, text: 'Rangpur, Bangladesh' },
-                { icon: Mail, text: 'sojibahmedshorif998@gmail.com' },
+                { icon: Mail, text: 'sojibahmedshorif25@gmail.com' },
                 { icon: Phone, text: '+880 1942791004' },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)]">
