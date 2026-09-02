@@ -46,7 +46,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#7C3AED',
     accentColor: '#06B6D4',
-    image: '/projects/investprop.png',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'job-finder',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#06B6D4',
     accentColor: '#7C3AED',
-    image: '/projects/jobfinder.png',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'pet-adoption',
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#10B981',
     accentColor: '#7C3AED',
-    image: '/projects/petadoption.png',
+    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'ecommerce-platform',
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#F59E0B',
     accentColor: '#06B6D4',
-    image: '/projects/ecommerce.png',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'portfolio-dashboard',
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#8B5CF6',
     accentColor: '#06B6D4',
-    image: '/projects/dashboard.png',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'ai-chat-interface',
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#EC4899',
     accentColor: '#7C3AED',
-    image: '/projects/aichat.png',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'restaurant-website',
@@ -196,7 +196,7 @@ export const projects: Project[] = [
     githubUrl: '#',
     color: '#EF4444',
     accentColor: '#F59E0B',
-    image: '/projects/restaurant.png',
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'restful-api',
@@ -222,7 +222,7 @@ export const projects: Project[] = [
     docsUrl: '#',
     color: '#06B6D4',
     accentColor: '#10B981',
-    image: '/projects/api.png',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'auth-system',
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     docsUrl: '#',
     color: '#7C3AED',
     accentColor: '#EC4899',
-    image: '/projects/auth.png',
+    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'realtime-chat-api',
@@ -274,6 +274,6 @@ export const projects: Project[] = [
     docsUrl: '#',
     color: '#10B981',
     accentColor: '#06B6D4',
-    image: '/projects/realtimechat.png',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
   },
 ];

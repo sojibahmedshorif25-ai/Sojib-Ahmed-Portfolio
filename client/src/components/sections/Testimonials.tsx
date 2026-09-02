@@ -17,9 +17,9 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <div className="section-badge mx-auto w-fit mb-3">
+          <div className="section-badge mx-auto w-fit mb-4">
             <span>💬</span> Testimonials
           </div>
           <h2 className="section-heading">What People Say</h2>
@@ -29,7 +29,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.id}
@@ -37,22 +37,22 @@ export default function Testimonials() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ scale: 1.02, y: -6 }}
-              className="card p-6 flex flex-col"
+              className="card p-8 flex flex-col"
             >
               {/* Stars */}
-              <div className="flex items-center gap-1 mb-4">
+              <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, si) => (
                   <Star key={si} size={14} className="fill-[#F59E0B] text-[#F59E0B]" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed flex-1 mb-5">
+              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed flex-1 mb-6">
                 "{t.quote}"
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-[rgba(124,58,237,0.1)]">
+              <div className="flex items-center gap-3 pt-5 border-t border-[rgba(124,58,237,0.1)]">
                 {/* Avatar */}
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
                   style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
@@ -78,7 +78,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-16"
         >
           <p className="text-sm text-[var(--color-text-secondary)]">
             All reviews are from real interactions in the Programming Hero community and developer circles.

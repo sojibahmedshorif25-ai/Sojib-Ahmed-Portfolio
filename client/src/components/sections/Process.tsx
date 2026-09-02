@@ -46,9 +46,9 @@ export default function Process() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <div className="section-badge mx-auto w-fit mb-3">
+          <div className="section-badge mx-auto w-fit mb-4">
             <span>⚙️</span> Process
           </div>
           <h2 className="section-heading">How I Bring Ideas to Life</h2>
@@ -58,7 +58,7 @@ export default function Process() {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
           {/* Connector line (desktop) */}
           <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px"
             style={{ background: 'linear-gradient(90deg, #7C3AED, #06B6D4, #10B981, #F59E0B)' }} />
@@ -70,18 +70,18 @@ export default function Process() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               whileHover={{ scale: 1.03, y: -8 }}
-              className="card p-6 relative text-center"
+              className="card p-8 relative text-center"
             >
               {/* Number bubble */}
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 relative z-10"
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 relative z-10"
                 style={{ background: `${step.color}20`, border: `2px solid ${step.color}50` }}>
                 <span className="text-2xl font-black" style={{ color: step.color }}>{step.number}</span>
               </div>
 
-              <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{step.title}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">{step.description}</p>
+              <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3">{step.title}</h3>
+              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-5">{step.description}</p>
 
-              <ul className="space-y-1.5">
+              <ul className="space-y-2">
                 {step.details.map(detail => (
                   <li key={detail} className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)]">
                     <div className="w-1.5 h-1.5 rounded-full" style={{ background: step.color }} />
@@ -98,7 +98,7 @@ export default function Process() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-16"
         >
           <motion.button
             whileHover={{ scale: 1.02 }}

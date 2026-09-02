@@ -72,9 +72,9 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <div className="section-badge mx-auto w-fit mb-3">
+          <div className="section-badge mx-auto w-fit mb-4">
             <span>💼</span> Services
           </div>
           <h2 className="section-heading">What I Offer</h2>
@@ -84,7 +84,7 @@ export default function Services() {
         </motion.div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
@@ -94,7 +94,7 @@ export default function Services() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ scale: 1.02, y: -8 }}
-                className="card p-7 relative group"
+                className="card p-8 relative group"
               >
                 {service.popular && (
                   <div className="absolute -top-3 left-6">
@@ -106,16 +106,16 @@ export default function Services() {
                 )}
 
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
                   style={{ background: `${service.color}15`, border: `1px solid ${service.color}30` }}>
                   <Icon size={24} style={{ color: service.color }} />
                 </div>
 
-                <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{service.title}</h3>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-5">{service.description}</p>
+                <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3">{service.title}</h3>
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">{service.description}</p>
 
                 {/* Features list */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2.5 mb-7">
                   {service.features.map(feature => (
                     <li key={feature} className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)]">
                       <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: service.color }} />
@@ -149,9 +149,9 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-14"
+          className="text-center mt-16"
         >
-          <p className="text-sm text-[var(--color-text-secondary)] mb-4">
+          <p className="text-sm text-[var(--color-text-secondary)] mb-5">
             Not sure which service fits your needs?
           </p>
           <motion.button

@@ -49,7 +49,7 @@ export default function About() {
         </motion.div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-5 gap-16 items-start mb-24">
+        <div className="grid lg:grid-cols-5 gap-20 items-start mb-32">
           {/* Left: Profile */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -58,7 +58,7 @@ export default function About() {
             className="lg:col-span-2"
           >
             {/* Avatar */}
-            <div className="relative mb-8">
+            <div className="relative mb-10">
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="relative w-full max-w-xs mx-auto lg:mx-0"
@@ -88,18 +88,18 @@ export default function About() {
             </div>
 
             {/* Quick info */}
-            <div className="mt-8 space-y-3">
+            <div className="mt-10 space-y-4">
               {[
                 { icon: MapPin, label: 'Location', value: 'Rangpur, Bangladesh' },
                 { icon: Code2, label: 'Specialization', value: 'MERN Stack' },
                 { icon: Rocket, label: 'Experience', value: '8+ Months Intensive' },
                 { icon: CheckCircle2, label: 'Status', value: 'Open to Opportunities' },
               ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-center gap-3 p-3 rounded-xl"
+                <div key={label} className="flex items-center gap-4 p-4 rounded-xl"
                   style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                     style={{ background: 'rgba(124,58,237,0.1)' }}>
-                    <Icon size={15} className="text-[#8B5CF6]" />
+                    <Icon size={16} className="text-[#8B5CF6]" />
                   </div>
                   <div>
                     <div className="text-xs text-[var(--color-text-secondary)]">{label}</div>
@@ -115,11 +115,11 @@ export default function About() {
             variants={stagger}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="lg:col-span-3 space-y-8"
+            className="lg:col-span-3 space-y-10"
           >
             {/* Intro paragraph */}
             <motion.div variants={fadeUp}>
-              <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-4">
+              <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-6">
                 I'm <span className="text-[var(--color-text-primary)] font-semibold">Sojib Ahmed</span>, a passionate MERN Stack Developer who completed an{' '}
                 <span className="gradient-text font-semibold">8-month intensive full-stack web development program</span>{' '}
                 at Programming Hero, building 10+ real-world projects along the way.
@@ -130,35 +130,35 @@ export default function About() {
             </motion.div>
 
             {/* Traits grid */}
-            <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-4">
+            <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-6">
               {traits.map(({ icon: Icon, color, title, desc }) => (
                 <motion.div
                   key={title}
                   variants={fadeUp}
                   whileHover={{ scale: 1.02, y: -4 }}
-                  className="card p-5"
+                  className="card p-7"
                 >
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 flex-shrink-0"
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
                     style={{ background: `${color}15`, border: `1px solid ${color}30` }}>
-                    <Icon size={18} style={{ color }} />
+                    <Icon size={20} style={{ color }} />
                   </div>
-                  <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-1">{title}</h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{desc}</p>
+                  <h3 className="text-base font-bold text-[var(--color-text-primary)] mb-2">{title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </motion.div>
 
             {/* What makes me different */}
             <motion.div variants={fadeUp} className="highlight-box">
-              <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-2">What Makes Me Different</h3>
-              <ul className="space-y-1.5">
+              <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-3">What Makes Me Different</h3>
+              <ul className="space-y-2.5">
                 {[
                   "I build for real users, not just to complete tasks",
                   "Clean, documented, maintainable code is non-negotiable",
                   "I stay current with the latest web technologies & best practices",
                   "I communicate proactively and meet deadlines consistently",
                 ].map((point) => (
-                  <li key={point} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]">
+                  <li key={point} className="flex items-start gap-2.5 text-sm text-[var(--color-text-secondary)]">
                     <CheckCircle2 size={14} className="text-[#10B981] mt-0.5 flex-shrink-0" />
                     {point}
                   </li>
@@ -173,9 +173,9 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={timelineInView ? { opacity: 1, y: 0 } : {}}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <div className="section-badge mx-auto w-fit mb-3">
+            <div className="section-badge mx-auto w-fit mb-4">
               <span>📅</span> Journey
             </div>
             <h3 className="text-3xl font-bold text-[var(--color-text-primary)]">
@@ -188,7 +188,7 @@ export default function About() {
             <div className="absolute left-6 top-0 bottom-0 w-px"
               style={{ background: 'linear-gradient(to bottom, #7C3AED, rgba(124,58,237,0.1))' }} />
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {timeline.map((item, i) => (
                 <motion.div
                   key={item.id}
@@ -210,14 +210,14 @@ export default function About() {
                   {/* Content */}
                   <motion.div
                     whileHover={{ scale: 1.01 }}
-                    className={`card flex-1 p-5 ${item.highlight ? 'border-[rgba(124,58,237,0.3)]' : ''}`}
+                    className={`card flex-1 p-6 ${item.highlight ? 'border-[rgba(124,58,237,0.3)]' : ''}`}
                   >
-                    <div className="flex items-start justify-between gap-3 mb-2">
+                    <div className="flex items-start justify-between gap-3 mb-3">
                       <div>
                         <h4 className="font-bold text-[var(--color-text-primary)] text-sm">{item.title}</h4>
                         <p className="text-xs text-[#8B5CF6] mt-0.5">{item.subtitle}</p>
                       </div>
-                      <span className="text-xs font-mono text-[var(--color-text-secondary)] whitespace-nowrap px-2 py-1 rounded-lg"
+                      <span className="text-xs font-mono text-[var(--color-text-secondary)] whitespace-nowrap px-2.5 py-1 rounded-lg"
                         style={{ background: 'rgba(124,58,237,0.08)' }}>
                         {item.date}
                       </span>
