@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon, Sparkles, Download } from 'lucide-react';
-import { useTheme } from '../../hooks/useTheme';
+import { Menu, X, Sparkles, Download } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -17,7 +16,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {

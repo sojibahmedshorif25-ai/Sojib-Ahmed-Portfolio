@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
-
-type Theme = 'dark' | 'light';
+import { useEffect } from 'react';
 
 export function useTheme() {
   const theme = 'dark'; // Hardcoded to dark mode
