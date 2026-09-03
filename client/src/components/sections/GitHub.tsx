@@ -115,7 +115,7 @@ export default function GitHub() {
         </motion.div>
 
         {/* Pinned Repos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {pinnedRepos.map((repo, i) => (
             <motion.div
               key={repo.name}

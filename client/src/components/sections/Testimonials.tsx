@@ -29,7 +29,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.id}
@@ -37,7 +37,7 @@ export default function Testimonials() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ scale: 1.02, y: -4 }}
-              className="card p-6 flex flex-col"
+              className="card p-8 flex flex-col h-full relative"
             >
               {/* Stars */}
               <div className="flex items-center gap-1 mb-3">

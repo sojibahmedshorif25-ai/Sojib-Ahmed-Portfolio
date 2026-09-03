@@ -84,7 +84,7 @@ export default function Services() {
         </motion.div>
 
         {/* Services grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
@@ -94,7 +94,7 @@ export default function Services() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ scale: 1.02, y: -6 }}
-                className="card p-6 relative group"
+                className="card p-8 group relative"
               >
                 {service.popular && (
                   <div className="absolute -top-3 left-6">

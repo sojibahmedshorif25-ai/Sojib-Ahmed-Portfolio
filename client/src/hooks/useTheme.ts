@@ -3,25 +3,17 @@ import { useState, useEffect } from 'react';
 type Theme = 'dark' | 'light';
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem('portfolio-theme') as Theme;
-    return saved || 'dark';
-  });
+  const theme = 'dark'; // Hardcoded to dark mode
 
   useEffect(() => {
-    localStorage.setItem('portfolio-theme', theme);
-    document.documentElement.setAttribute('data-theme', theme);
-    if (theme === 'light') {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    }
-  }, [theme]);
+    localStorage.setItem('portfolio-theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+  }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    // Disabled
   };
 
   return { theme, toggleTheme };

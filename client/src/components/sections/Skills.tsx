@@ -134,7 +134,7 @@ export default function Skills() {
             id={`skills-panel-${activeTab}`}
             role="tabpanel"
             aria-labelledby={`skills-tab-${activeTab}`}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           >
             {activeCategory?.skills.map((skill, i) => {
               const levelStyle = levelColors[skill.level];
@@ -148,7 +148,7 @@ export default function Skills() {
                   transition={{ duration: 0.3, delay: i * 0.05 }}
                   onHoverStart={() => setHoveredSkill(`${activeTab}-${skill.name}`)}
                   onHoverEnd={() => setHoveredSkill(null)}
-                  className="card p-5 cursor-default relative overflow-hidden group"
+                  className="card p-8 cursor-default relative overflow-hidden group"
                   style={{ '--hover-color': skill.color } as React.CSSProperties}
                 >
                   {/* Hover glow */}
@@ -223,7 +223,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4"
+          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-8"
         >
           {[
             { label: 'Expert Skills', count: skillCategories.flatMap(c => c.skills).filter(s => s.level === 'Expert').length, color: '#10B981' },

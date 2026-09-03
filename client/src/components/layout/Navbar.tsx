@@ -58,30 +58,30 @@ export default function Navbar() {
         }`}
       >
         <div className="container-custom">
-          <nav className="flex items-center justify-between h-16 md:h-20" aria-label="Main navigation">
+          <nav className="flex items-center justify-between h-20 md:h-28" aria-label="Main navigation">
             {/* Logo */}
             <motion.a
               id="nav-logo"
               href="#home"
               onClick={() => handleNavClick('#home')}
-              className="relative flex items-center gap-3 group"
+              className="relative flex items-center gap-4 group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               aria-label="Sojib Ahmed - Home"
             >
-              <div className="relative w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden"
+              <div className="relative w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden"
                 style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
-                <span className="text-white font-bold text-lg leading-none">SA</span>
+                <span className="text-white font-bold text-xl leading-none">SA</span>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
               </div>
               <div className="hidden sm:block">
-                <div className="text-sm font-bold text-[var(--color-text-primary)] leading-tight">Sojib Ahmed</div>
-                <div className="text-xs text-[var(--color-text-secondary)]">MERN Stack Dev</div>
+                <div className="text-base font-bold text-[var(--color-text-primary)] leading-tight">Sojib Ahmed</div>
+                <div className="text-sm text-[var(--color-text-secondary)]">MERN Stack Dev</div>
               </div>
             </motion.a>
 
             {/* Desktop Nav Links */}
-            <ul className="hidden lg:flex items-center gap-1" role="list">
+            <ul className="hidden lg:flex items-center gap-8" role="list">
               {navLinks.map((link) => {
                 const id = link.href.replace('#', '');
                 const isActive = activeSection === id;
@@ -89,7 +89,7 @@ export default function Navbar() {
                   <li key={link.label}>
                     <button
                       onClick={() => handleNavClick(link.href)}
-                      className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      className={`relative px-2 py-2 text-base font-medium rounded-lg transition-all duration-200 ${
                         isActive
                           ? 'text-[#8B5CF6]'
                           : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -112,18 +112,7 @@ export default function Navbar() {
             </ul>
 
             {/* Right Actions */}
-            <div className="flex items-center gap-2">
-              {/* Theme Toggle */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={toggleTheme}
-                className="w-9 h-9 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[rgba(124,58,237,0.08)] transition-all"
-                aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              >
-                {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-              </motion.button>
-
+            <div className="flex items-center gap-4">
               {/* AI Assistant Badge */}
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -210,8 +199,9 @@ export default function Navbar() {
 
             <div className="p-6 border-t border-[rgba(124,58,237,0.15)]">
               <a
-                href="/resume.pdf"
-                download
+                href="https://drive.google.com/file/d/1d2XvAZkY2ISC3koXCTLJyHlQ64hGZ5UG/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary w-full justify-center"
                 onClick={() => setMenuOpen(false)}
               >

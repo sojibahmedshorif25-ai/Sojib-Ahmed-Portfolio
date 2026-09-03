@@ -209,8 +209,8 @@ export default function Hero() {
       <div className="orb orb-violet absolute top-20 left-[-100px] w-[500px] h-[500px] opacity-20" aria-hidden="true" />
       <div className="orb orb-cyan absolute bottom-20 right-[-100px] w-[400px] h-[400px] opacity-15" aria-hidden="true" />
 
-      <div className="container-custom relative z-10 py-16">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+      <div className="container-custom relative z-10 py-32">
+        <div className="grid lg:grid-cols-5 gap-20 items-center">
           {/* Left Content - 60% */}
           <div className="lg:col-span-3">
             {/* Status badge */}
@@ -218,11 +218,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-2 mb-6"
+              className="inline-flex items-center gap-3 mb-10"
             >
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full glass border border-[rgba(16,185,129,0.3)]">
+              <div className="flex items-center gap-3 px-6 py-3 rounded-full glass border border-[rgba(16,185,129,0.3)]">
                 <div className="status-dot" />
-                <span className="text-xs font-semibold text-[#10B981] tracking-wider uppercase">
+                <span className="text-sm font-semibold text-[#10B981] tracking-wider uppercase">
                   Available for Freelance & Full-Time
                 </span>
               </div>
@@ -234,10 +234,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-base text-[var(--color-text-secondary)] mb-2 font-medium">
+              <p className="text-xl text-[var(--color-text-secondary)] mb-4 font-medium">
                 Hey, I'm 👋
               </p>
-              <h1 className="text-[clamp(44px,7vw,80px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-4">
+              <h1 className="text-[clamp(56px,8vw,100px)] font-black leading-tight tracking-tight text-[var(--color-text-primary)] mb-8">
                 Sojib Ahmed
               </h1>
             </motion.div>
@@ -247,9 +247,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-5"
+              className="mb-8"
             >
-              <h2 className="text-[clamp(18px,3vw,28px)] font-bold leading-snug text-[var(--color-text-primary)]">
+              <h2 className="text-[clamp(22px,4vw,36px)] font-bold leading-relaxed text-[var(--color-text-primary)]">
                 Building Digital Experiences{' '}
                 <span className="gradient-text">That Actually Make an Impact.</span>
               </h2>
@@ -260,7 +260,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xl mb-6"
+              className="text-lg text-[var(--color-text-secondary)] leading-loose max-w-2xl mb-12"
             >
               I build scalable, high-performance and user-focused web applications using modern JavaScript technologies — from beautiful frontends to robust backends.
             </motion.p>
@@ -314,8 +314,9 @@ export default function Hero() {
               </motion.button>
 
               <motion.a
-                href="/resume.pdf"
-                download
+                href="https://drive.google.com/file/d/1d2XvAZkY2ISC3koXCTLJyHlQ64hGZ5UG/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="btn-ghost"

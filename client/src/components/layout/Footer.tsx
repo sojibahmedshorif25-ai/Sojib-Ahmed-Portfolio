@@ -45,27 +45,27 @@ export default function Footer() {
         style={{ background: 'linear-gradient(90deg, transparent, rgba(124,58,237,0.5), rgba(6,182,212,0.3), transparent)' }}
       />
 
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+      <div className="container-custom py-24 md:py-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-24">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white"
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white text-xl"
                 style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
                 SA
               </div>
               <div>
-                <div className="font-bold text-[var(--color-text-primary)]">Sojib Ahmed</div>
-                <div className="text-xs text-[var(--color-text-secondary)]">MERN Stack Developer</div>
+                <div className="font-bold text-lg text-[var(--color-text-primary)]">Sojib Ahmed</div>
+                <div className="text-sm text-[var(--color-text-secondary)]">MERN Stack Developer</div>
               </div>
             </div>
 
-            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xs mb-6">
+            <p className="text-base text-[var(--color-text-secondary)] leading-relaxed max-w-sm mb-8">
               Building modern digital experiences with code, creativity, and purpose. Open to full-time, freelance, and remote opportunities.
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {[
                 { icon: GitHubIcon, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub' },
                 { icon: LinkedInIcon, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn' },
@@ -78,23 +78,23 @@ export default function Footer() {
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="social-icon"
+                  className="social-icon w-12 h-12"
                   aria-label={label}
                 >
-                  <Icon size={18} />
+                  <Icon size={20} />
                 </motion.a>
               ))}
             </div>
 
             {/* Contact Info */}
-            <div className="mt-6 space-y-2">
+            <div className="mt-8 space-y-4">
               {[
                 { icon: MapPin, text: 'Rangpur, Bangladesh' },
                 { icon: Mail, text: 'sojibahmedshorif25@gmail.com' },
                 { icon: Phone, text: '+880 1942791004' },
               ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)]">
-                  <Icon size={13} className="text-[#7C3AED] flex-shrink-0" />
+                <div key={text} className="flex items-center gap-3 text-sm text-[var(--color-text-secondary)]">
+                  <Icon size={16} className="text-[#7C3AED] flex-shrink-0" />
                   {text}
                 </div>
               ))}
@@ -104,13 +104,13 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-4">{category}</h3>
-              <ul className="space-y-2.5">
+              <h3 className="text-base font-semibold text-[var(--color-text-primary)] mb-6">{category}</h3>
+              <ul className="space-y-4">
                 {links.map((link) => (
                   <li key={link.label}>
                     <button
                       onClick={() => scrollTo(link.href)}
-                      className="text-sm text-[var(--color-text-secondary)] hover:text-[#8B5CF6] transition-colors text-left"
+                      className="text-base text-[var(--color-text-secondary)] hover:text-[#8B5CF6] transition-colors text-left"
                     >
                       {link.label}
                     </button>

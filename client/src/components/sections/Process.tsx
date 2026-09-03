@@ -58,7 +58,7 @@ export default function Process() {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 relative">
           {/* Connector line (desktop) */}
           <div className="hidden lg:block absolute top-8 left-[12.5%] right-[12.5%] h-px"
             style={{ background: 'linear-gradient(90deg, #7C3AED, #06B6D4, #10B981, #F59E0B)' }} />
@@ -70,7 +70,7 @@ export default function Process() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
               whileHover={{ scale: 1.03, y: -6 }}
-              className="card p-6 relative text-center"
+              className="card p-8 h-full relative z-10 text-center"
             >
               {/* Number bubble */}
               <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 relative z-10"

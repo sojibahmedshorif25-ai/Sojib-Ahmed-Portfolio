@@ -47,7 +47,7 @@ export default function About() {
         </motion.div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
+        <div className="grid lg:grid-cols-5 gap-20 items-start">
           {/* Left: Profile */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -56,10 +56,10 @@ export default function About() {
             className="lg:col-span-2"
           >
             {/* Avatar */}
-            <div className="relative mb-8">
+            <div className="relative mb-12">
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="relative w-full max-w-xs mx-auto lg:mx-0"
+                className="relative w-full max-w-sm mx-auto lg:mx-0"
               >
                 {/* Glow border */}
                 <div className="absolute -inset-1 rounded-3xl opacity-60 blur-sm"
@@ -67,10 +67,10 @@ export default function About() {
                 
                 <div className="relative rounded-3xl overflow-hidden aspect-square bg-gradient-to-br from-[rgba(124,58,237,0.2)] to-[rgba(6,182,212,0.1)] flex items-center justify-center"
                   style={{ background: 'var(--color-surface-2)' }}>
-                  {/* Fallback initials avatar */}
-                  <div className="text-center">
-                    <div className="text-8xl font-black gradient-text">SA</div>
-                    <p className="text-sm text-[var(--color-text-secondary)] mt-2">Sojib Ahmed</p>
+                  {/* Profile Image Replacement */}
+                  <div className="w-full h-full relative p-1 rounded-2xl overflow-hidden bg-[var(--color-surface)]">
+                    <img src="/images/hero.jpg" alt="Sojib Ahmed" className="w-full h-full object-cover rounded-2xl opacity-90" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent opacity-60"></div>
                   </div>
 
                   {/* Overlay gradient */}
@@ -78,30 +78,30 @@ export default function About() {
                 </div>
 
                 {/* Status badge */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full glass border border-[rgba(16,185,129,0.3)] whitespace-nowrap">
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 px-6 py-3 rounded-full glass border border-[rgba(16,185,129,0.3)] whitespace-nowrap">
                   <div className="status-dot" />
-                  <span className="text-xs font-semibold text-[#10B981]">Available Now</span>
+                  <span className="text-sm font-semibold text-[#10B981]">Available Now</span>
                 </div>
               </motion.div>
             </div>
 
             {/* Quick info */}
-            <div className="mt-8 space-y-3">
+            <div className="mt-12 space-y-4">
               {[
                 { icon: MapPin, label: 'Location', value: 'Rangpur, Bangladesh' },
                 { icon: Code2, label: 'Specialization', value: 'MERN Stack' },
                 { icon: Rocket, label: 'Experience', value: '8+ Months Intensive' },
                 { icon: CheckCircle2, label: 'Status', value: 'Open to Opportunities' },
               ].map(({ icon: Icon, label, value }) => (
-                <div key={label} className="flex items-center gap-3 p-3 rounded-xl"
+                <div key={label} className="flex items-center gap-4 p-4 rounded-xl"
                   style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                     style={{ background: 'rgba(124,58,237,0.1)' }}>
-                    <Icon size={14} className="text-[#8B5CF6]" />
+                    <Icon size={18} className="text-[#8B5CF6]" />
                   </div>
                   <div>
-                    <div className="text-[11px] text-[var(--color-text-secondary)]">{label}</div>
-                    <div className="text-sm font-semibold text-[var(--color-text-primary)]">{value}</div>
+                    <div className="text-sm text-[var(--color-text-secondary)]">{label}</div>
+                    <div className="text-base font-semibold text-[var(--color-text-primary)]">{value}</div>
                   </div>
                 </div>
               ))}
@@ -113,35 +113,35 @@ export default function About() {
             variants={stagger}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
-            className="lg:col-span-3 space-y-6"
+            className="lg:col-span-3 space-y-12"
           >
             {/* Intro paragraph */}
             <motion.div variants={fadeUp}>
-              <p className="text-base text-[var(--color-text-secondary)] leading-relaxed mb-4">
+              <p className="text-lg text-[var(--color-text-secondary)] leading-loose mb-6">
                 I'm <span className="text-[var(--color-text-primary)] font-semibold">Sojib Ahmed</span>, a passionate MERN Stack Developer who completed an{' '}
                 <span className="gradient-text font-semibold">8-month intensive full-stack web development program</span>{' '}
                 at Programming Hero, building 10+ real-world projects along the way.
               </p>
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              <p className="text-lg text-[var(--color-text-secondary)] leading-loose">
                 My focus is on crafting applications that are not just functional — but fast, secure, scalable, and a joy to use. I believe the best code is code that solves real problems elegantly.
               </p>
             </motion.div>
 
             {/* Traits grid */}
-            <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-4">
+            <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-8">
               {traits.map(({ icon: Icon, color, title, desc }) => (
                 <motion.div
                   key={title}
                   variants={fadeUp}
                   whileHover={{ scale: 1.02, y: -4 }}
-                  className="card p-5"
+                  className="card p-8"
                 >
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 flex-shrink-0"
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 flex-shrink-0"
                     style={{ background: `${color}15`, border: `1px solid ${color}30` }}>
-                    <Icon size={16} style={{ color }} />
+                    <Icon size={20} style={{ color }} />
                   </div>
-                  <h3 className="text-sm font-bold text-[var(--color-text-primary)] mb-1">{title}</h3>
-                  <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{desc}</p>
+                  <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">{title}</h3>
+                  <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">{desc}</p>
                 </motion.div>
               ))}
             </motion.div>

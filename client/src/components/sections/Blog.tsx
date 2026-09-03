@@ -159,7 +159,7 @@ export default function Blog() {
         ))}
 
         {/* Other posts grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {blogPosts.filter(p => !p.featured).map((post, i) => (
             <motion.article
               key={post.id}

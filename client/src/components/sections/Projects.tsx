@@ -101,7 +101,7 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
           >
             {filtered.map((project, i) => (
               <motion.article
@@ -126,7 +126,18 @@ export default function Projects() {
                   }}
                 />
 
-                <div className="p-6">
+                <div className="project-card-image w-full h-48 sm:h-56 relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  {/* Subtle overlay to ensure text contrast if placed over image, or just stylistic fade */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent opacity-90" />
+                </div>
+
+                <div className="p-6 md:p-8 pt-4">
                   {/* Header */}
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div>

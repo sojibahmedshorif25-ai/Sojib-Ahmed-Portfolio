@@ -45,7 +45,7 @@ export default function Certificates() {
               <div className="absolute top-0 left-0 right-0 h-px"
                 style={{ background: 'linear-gradient(90deg, transparent, #7C3AED, #06B6D4, transparent)' }} />
               
-              <div className="grid md:grid-cols-3 gap-8 items-center">
+              <div className="grid md:grid-cols-3 gap-10 items-center">
                 {/* Certificate visual */}
                 <div className="md:col-span-1">
                   <div className="aspect-[4/3] rounded-2xl flex items-center justify-center overflow-hidden"
@@ -111,8 +111,9 @@ export default function Certificates() {
                       Verify Certificate
                     </motion.a>
                     <motion.a
-                      href="/resume.pdf"
-                      download
+                      href="https://drive.google.com/file/d/1d2XvAZkY2ISC3koXCTLJyHlQ64hGZ5UG/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.02 }}
                       className="btn-secondary"
                       id={`cert-download-${cert.id}`}
@@ -128,7 +129,7 @@ export default function Certificates() {
         </motion.div>
 
         {/* Other certificates */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {certificates.filter(c => !c.featured).map((cert, i) => (
             <motion.div
               key={cert.id}

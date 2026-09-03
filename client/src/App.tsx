@@ -18,10 +18,10 @@ function App() {
   const { theme } = useTheme();
 
   useEffect(() => {
-    // Apply theme class to document
-    document.documentElement.classList.toggle('light', theme === 'light');
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  }, [theme]);
+    // Only dark theme is used now
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+  }, []);
 
   useEffect(() => {
     // Init easter eggs

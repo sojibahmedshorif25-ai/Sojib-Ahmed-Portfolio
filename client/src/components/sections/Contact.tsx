@@ -77,7 +77,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-10">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Left info panel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -195,7 +195,7 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-                  <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div>
                       <label htmlFor="contact-name" className="block text-[11px] font-semibold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
