@@ -56,7 +56,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12"
           role="tablist"
           aria-label="Project category filter"
         >
@@ -70,7 +70,7 @@ export default function Projects() {
                 onClick={() => setActiveFilter(cat)}
                 role="tab"
                 aria-selected={activeFilter === cat}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all ${
                   activeFilter === cat
                     ? 'text-white shadow-lg'
                     : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
@@ -101,7 +101,7 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 lg:gap-12"
           >
             {filtered.map((project, i) => (
               <motion.article

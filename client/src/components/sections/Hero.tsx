@@ -209,8 +209,8 @@ export default function Hero() {
       <div className="orb orb-violet absolute top-20 left-[-100px] w-[500px] h-[500px] opacity-20" aria-hidden="true" />
       <div className="orb orb-cyan absolute bottom-20 right-[-100px] w-[400px] h-[400px] opacity-15" aria-hidden="true" />
 
-      <div className="container-custom relative z-10 py-32">
-        <div className="grid lg:grid-cols-5 gap-20 items-center">
+      <div className="container-custom relative z-10 py-16 sm:py-20 lg:py-32">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-20 items-center">
           {/* Left Content - 60% */}
           <div className="lg:col-span-3">
             {/* Status badge */}
@@ -220,9 +220,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="inline-flex items-center gap-3 mb-10"
             >
-              <div className="flex items-center gap-3 px-6 py-3 rounded-full glass border border-[rgba(16,185,129,0.3)]">
+              <div className="flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 rounded-full glass border border-[rgba(16,185,129,0.3)]">
                 <div className="status-dot" />
-                <span className="text-sm font-semibold text-[#10B981] tracking-wider uppercase">
+                <span className="text-[10px] sm:text-sm font-semibold text-[#10B981] tracking-wider uppercase">
                   Available for Freelance & Full-Time
                 </span>
               </div>
@@ -234,10 +234,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-xl text-[var(--color-text-secondary)] mb-4 font-medium">
+              <p className="text-base sm:text-xl text-[var(--color-text-secondary)] mb-2 sm:mb-4 font-medium">
                 Hey, I'm 👋
               </p>
-              <h1 className="text-[clamp(56px,8vw,100px)] font-black leading-tight tracking-tight text-[var(--color-text-primary)] mb-8">
+              <h1 className="text-[clamp(32px,7vw,100px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-4 sm:mb-8">
                 Sojib Ahmed
               </h1>
             </motion.div>
@@ -249,7 +249,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-8"
             >
-              <h2 className="text-[clamp(22px,4vw,36px)] font-bold leading-relaxed text-[var(--color-text-primary)]">
+              <h2 className="text-[clamp(16px,3.5vw,36px)] font-bold leading-snug text-[var(--color-text-primary)]">
                 Building Digital Experiences{' '}
                 <span className="gradient-text">That Actually Make an Impact.</span>
               </h2>
@@ -260,7 +260,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg text-[var(--color-text-secondary)] leading-loose max-w-2xl mb-12"
+              className="text-sm sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mb-6 sm:mb-12"
             >
               I build scalable, high-performance and user-focused web applications using modern JavaScript technologies — from beautiful frontends to robust backends.
             </motion.p>
@@ -270,7 +270,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap items-center gap-6 mb-8"
+              className="flex flex-wrap items-center gap-4 sm:gap-6 mb-6 sm:mb-8"
             >
               {[
                 { value: '8+', label: 'Months Learning' },
@@ -290,7 +290,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap gap-3 mb-8"
+              className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8"
             >
               <motion.button
                 whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(124,58,237,0.4)' }}

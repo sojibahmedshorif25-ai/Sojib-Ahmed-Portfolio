@@ -56,7 +56,7 @@ export default function Navbar() {
         }`}
       >
         <div className="container-custom">
-          <nav className="flex items-center justify-between h-20 md:h-28" aria-label="Main navigation">
+          <nav className="flex items-center justify-between h-16 sm:h-20 md:h-28" aria-label="Main navigation">
             {/* Logo */}
             <motion.a
               id="nav-logo"
@@ -67,9 +67,9 @@ export default function Navbar() {
               whileTap={{ scale: 0.98 }}
               aria-label="Sojib Ahmed - Home"
             >
-              <div className="relative w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden"
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden"
                 style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
-                <span className="text-white font-bold text-xl leading-none">SA</span>
+                <span className="text-white font-bold text-base sm:text-xl leading-none">SA</span>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
               </div>
               <div className="hidden sm:block">
