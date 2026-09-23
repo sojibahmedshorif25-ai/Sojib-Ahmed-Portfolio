@@ -51,11 +51,12 @@ export default function Contact() {
         throw new Error('Failed to send');
       }
     } catch {
-      // Simulate success for demo
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setIsSuccess(true);
+      // Backend unavailable — open recruiter's mail app with prefilled message instead of faking success
+      const subject = encodeURIComponent(`[Portfolio] ${data.subject} — ${data.name}`);
+      const body = encodeURIComponent(`${data.message}\n\n— ${data.name} (${data.email})`);
+      window.location.href = `mailto:sojibahmedshorif998@gmail.com?subject=${subject}&body=${body}`;
       reset();
-      toast.success("Message sent! I'll reply soon. 🚀");
+      toast('Server offline — opening your mail app instead', { icon: '📧' });
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setIsSuccess(false), 5000);

@@ -10,7 +10,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-8-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sojib-ahmed-portfolio.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sojib-ahmed-developer.vercel.app)
 [![Server API](https://img.shields.io/badge/Server_API-Render-4D6E4F?style=for-the-badge&logo=render&logoColor=white)](https://sojib-ahmed-portfolio-server.onrender.com)
 
 </div>
@@ -188,7 +188,7 @@ npm run dev
 
 | Service | Platform | URL |
 |---------|----------|-----|
-| Frontend | **Vercel** | [sojib-ahmed-portfolio.vercel.app](https://sojib-ahmed-portfolio.vercel.app) |
+| Frontend | **Vercel** | [sojib-ahmed-developer.vercel.app](https://sojib-ahmed-developer.vercel.app) |
 | Backend | **Render** | [sojib-ahmed-portfolio-server.onrender.com](https://sojib-ahmed-portfolio-server.onrender.com) |
 | Database | **MongoDB Atlas** | Cloud |
 
