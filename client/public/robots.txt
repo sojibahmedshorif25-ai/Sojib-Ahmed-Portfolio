@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://sojib-ahmed-developer.vercel.app/sitemap.xml

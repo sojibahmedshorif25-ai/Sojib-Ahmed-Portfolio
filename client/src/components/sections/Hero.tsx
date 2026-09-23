@@ -17,26 +17,24 @@ function TerminalWindow() {
   const [typedChars, setTypedChars] = useState<Record<number, number>>({});
 
   useEffect(() => {
-    const timers: number[] = [];
     terminalLines.forEach((line, i) => {
-      timers.push(window.setTimeout(() => {
+      setTimeout(() => {
         setTypingLine(i);
         // Type command char by char
         const chars = line.command.length;
         for (let c = 0; c <= chars; c++) {
-          timers.push(window.setTimeout(() => {
+          setTimeout(() => {
             setTypedChars(prev => ({ ...prev, [i]: c }));
             if (c === chars) {
-              timers.push(window.setTimeout(() => {
+              setTimeout(() => {
                 setVisibleLines(prev => [...prev, i]);
                 setTypingLine(null);
-              }, 200));
+              }, 200);
             }
-          }, c * 60));
+          }, c * 60);
         }
-      }, line.delay));
+      }, line.delay);
     });
-    return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
@@ -92,9 +90,8 @@ export default function Hero() {
   const mouseRef = useRef({ x: 0, y: 0 });
   const animRef = useRef<number>(0);
 
-  // Three.js-style particle canvas (reduced on mobile + respects reduced motion)
+  // Three.js-style particle canvas
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d')!;
@@ -108,9 +105,8 @@ export default function Hero() {
 
     const particles: { x: number; y: number; vx: number; vy: number; r: number; alpha: number; color: string }[] = [];
     const colors = ['rgba(124,58,237,', 'rgba(6,182,212,', 'rgba(16,185,129,'];
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 35 : 80;
-    for (let i = 0; i < particleCount; i++) {
+
+    for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -269,10 +265,10 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-4 sm:gap-6 mb-6 sm:mb-8"
             >
               {[
-                { value: '10+', label: 'Projects Shipped' },
-                { value: '38', label: 'GitHub Repos' },
-                { value: '15+', label: 'Tech Stack' },
-                { value: 'Open', label: 'To Work' },
+                { value: '8+', label: 'Months Learning' },
+                { value: '10+', label: 'Projects Built' },
+                { value: '15+', label: 'Technologies' },
+                { value: '100%', label: 'Passion' },
               ].map(({ value, label }) => (
                 <div key={label} className="text-left pr-3 border-r last:border-r-0 border-[rgba(255,255,255,0.08)]">
                   <div className="text-xl sm:text-2xl font-black gradient-text leading-none">{value}</div>
@@ -310,7 +306,7 @@ export default function Hero() {
               </motion.button>
 
               <motion.a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1d2XvAZkY2ISC3koXCTLJyHlQ64hGZ5UG/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
@@ -371,7 +367,7 @@ export default function Hero() {
                 <div className="glass rounded-xl p-3 border border-[rgba(124,58,237,0.2)] flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-                    <span className="text-xs font-mono font-semibold text-[var(--color-text-primary)]">FULL-STACK DEVELOPER</span>
+                    <span className="text-xs font-mono font-semibold text-[var(--color-text-primary)]">FULL STACK STACK</span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {['React', 'Node.js', 'MongoDB', 'TypeScript', 'Next.js'].map(tech => (
