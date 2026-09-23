@@ -24,7 +24,7 @@ export const certificates: Certificate[] = [
     issuerLogo: '🦸',
     date: 'January 2026 – August 2026',
     duration: '8 Months Intensive Training',
-    skills: ['MERN Stack', 'JavaScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Firebase', 'TypeScript', 'Tailwind CSS'],
+    skills: ['Fullstack Development', 'JavaScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Firebase', 'TypeScript', 'Tailwind CSS'],
     verifyUrl: '#',
     credentialId: 'PH-2026-MERN-SOJIB',
     color: '#7C3AED',

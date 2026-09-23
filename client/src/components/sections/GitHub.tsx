@@ -19,7 +19,7 @@ const pinnedRepos = [
     langColor: '#F7DF1E',
     stars: 8,
     forks: 2,
-    topics: ['MERN', 'JWT', 'Firebase'],
+    topics: ['Fullstack', 'JWT', 'Firebase'],
   },
   {
     name: 'pet-adoption-platform',

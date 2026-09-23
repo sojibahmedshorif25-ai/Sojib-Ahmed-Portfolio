@@ -19,7 +19,7 @@
 
 ## 📖 Overview
 
-A **premium full-stack portfolio website** built with the MERN stack, featuring a cinematic dark theme, AI-powered chatbot, admin dashboard, and stunning animations powered by GSAP, Framer Motion, and Three.js. This isn't just a portfolio — it's an interactive experience.
+A **premium full-stack portfolio website** built end-to-end with React, Node.js and MongoDB, featuring a cinematic dark theme, AI-powered chatbot, admin dashboard, and stunning animations powered by GSAP, Framer Motion, and Three.js. This isn't just a portfolio — it's an interactive experience.
 
 ---
 

@@ -27,7 +27,7 @@ const blogPosts = [
   },
   {
     id: 'mongodb-schema-design',
-    title: 'MongoDB Schema Design Best Practices for MERN Apps',
+    title: 'MongoDB Schema Design Best Practices for Full-Stack Apps',
     excerpt: 'Deep dive into embedding vs referencing, aggregation pipelines, and indexing strategies for high-performance MongoDB applications.',
     category: 'MongoDB',
     tags: ['MongoDB', 'Database', 'Schema Design', 'Backend'],
@@ -71,7 +71,7 @@ export default function Blog() {
           </div>
           <h2 className="section-heading">Thinking Out Loud</h2>
           <p className="section-subheading mx-auto text-center">
-            Technical articles on MERN Stack development, best practices, and lessons learned.
+            Technical articles on full-stack development, best practices, and lessons learned.
           </p>
         </motion.div>
 
@@ -198,7 +198,7 @@ export default function Blog() {
           transition={{ delay: 0.7 }}
           className="text-center mt-10"
         >
-          <p className="text-sm text-[var(--color-text-secondary)]">More articles coming soon! I write regularly about MERN stack development.</p>
+          <p className="text-sm text-[var(--color-text-secondary)]">More articles coming soon! I write regularly about full-stack development.</p>
         </motion.div>
       </div>
     </section>

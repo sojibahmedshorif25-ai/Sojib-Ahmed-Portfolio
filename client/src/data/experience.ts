@@ -37,9 +37,9 @@ export const timeline: TimelineItem[] = [
     date: 'Jan 2026 – Aug 2026',
     title: 'Complete Web Development Course',
     subtitle: 'Programming Hero | 8 Months Intensive Training',
-    description: 'Completed an intensive 8-month full-stack web development program covering the complete MERN stack ecosystem from fundamentals to production-grade applications.',
+    description: 'Completed an intensive 8-month full-stack web development program covering the complete frontend-to-backend ecosystem from fundamentals to production-grade applications.',
     type: 'certification',
-    skills: ['MERN Stack', 'JavaScript', 'React', 'Node.js', 'MongoDB', 'Express.js'],
+    skills: ['Fullstack Development', 'JavaScript', 'React', 'Node.js', 'MongoDB', 'Express.js'],
     highlight: true,
   },
   {
@@ -93,7 +93,7 @@ export const timeline: TimelineItem[] = [
     subtitle: 'End-to-End Applications',
     description: 'Started building complete, production-ready full-stack applications from design to deployment.',
     type: 'milestone',
-    skills: ['MERN Stack', 'Full Stack', 'Deployment', 'Vercel', 'Render'],
+    skills: ['Fullstack', 'Full Stack', 'Deployment', 'Vercel', 'Render'],
     highlight: true,
   },
   {
@@ -122,7 +122,7 @@ export const timeline: TimelineItem[] = [
     subtitle: 'Full Stack Developer | Available for Opportunities',
     description: 'Actively building scalable, high-performance web applications and open to full-time, freelance, and remote opportunities.',
     type: 'milestone',
-    skills: ['Full Stack', 'MERN', 'AI Integration', 'System Design'],
+    skills: ['Full Stack', 'Fullstack', 'AI Integration', 'System Design'],
     highlight: true,
   },
 ];
