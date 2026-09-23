@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import toast from 'react-hot-toast';
-import { Mail, Phone, MapPin, Clock, Send, GitBranch, Link2, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Phone, MapPin, Clock, Send, CheckCircle2, ArrowRight, Copy, Check } from 'lucide-react';
+import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa6';
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -20,6 +21,14 @@ export default function Contact() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('sojibahmedshorif998@gmail.com');
+    setCopied(true);
+    toast.success('Email copied: sojibahmedshorif998@gmail.com');
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -88,13 +97,14 @@ export default function Contact() {
             {/* Status card */}
             <div className="card p-5">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-white text-base"
-                  style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
-                  SA
+                <div className="relative w-11 h-11 rounded-xl p-[1px] bg-gradient-to-tr from-[#7C3AED] via-[#06B6D4] to-[#10B981] shadow-md flex-shrink-0">
+                  <div className="w-full h-full bg-[#050508] rounded-[11px] flex items-center justify-center">
+                    <span className="font-extrabold text-sm bg-gradient-to-r from-[#A78BFA] via-[#22D3EE] to-[#34D399] bg-clip-text text-transparent">SA</span>
+                  </div>
                 </div>
                 <div>
                   <div className="text-sm font-bold text-[var(--color-text-primary)]">Sojib Ahmed</div>
-                  <div className="text-[11px] text-[#8B5CF6]">MERN Stack Developer</div>
+                  <div className="text-[11px] text-[#06B6D4] font-medium">Full Stack Developer</div>
                 </div>
               </div>
 
@@ -120,45 +130,74 @@ export default function Contact() {
             </div>
 
             {/* Contact details */}
-            <div className="card p-5 space-y-3">
-              {[
-                { icon: Mail, label: 'Email', value: 'sojibahmedshorif25@gmail.com', href: 'mailto:sojibahmedshorif25@gmail.com' },
-                { icon: Phone, label: 'Phone', value: '+880 1942791004', href: 'tel:+8801942791004' },
-                { icon: MapPin, label: 'Location', value: 'Rangpur, Bangladesh', href: null },
-              ].map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-start gap-3">
+            <div className="card p-5 space-y-3.5">
+              {/* Email with copy button */}
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(124,58,237,0.1)' }}>
-                    <Icon size={14} className="text-[#8B5CF6]" />
+                    style={{ background: 'rgba(6,182,212,0.1)' }}>
+                    <FaEnvelope size={14} className="text-[#06B6D4]" />
                   </div>
                   <div>
-                    <div className="text-[10px] text-[var(--color-text-secondary)]">{label}</div>
-                    {href ? (
-                      <a href={href} className="text-xs font-medium text-[var(--color-text-primary)] hover:text-[#8B5CF6] transition-colors">
-                        {value}
-                      </a>
-                    ) : (
-                      <div className="text-xs font-medium text-[var(--color-text-primary)]">{value}</div>
-                    )}
+                    <div className="text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider font-semibold">Email</div>
+                    <a href="mailto:sojibahmedshorif998@gmail.com" className="text-xs font-medium text-[var(--color-text-primary)] hover:text-[#06B6D4] transition-colors break-all">
+                      sojibahmedshorif998@gmail.com
+                    </a>
                   </div>
                 </div>
-              ))}
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={handleCopyEmail}
+                  className="px-2.5 py-1 rounded-lg text-[11px] font-medium glass border border-[rgba(6,182,212,0.3)] text-[#06B6D4] hover:bg-[rgba(6,182,212,0.1)] transition-all flex items-center gap-1.5 flex-shrink-0"
+                  title="Copy email to clipboard"
+                >
+                  {copied ? <Check size={12} className="text-[#10B981]" /> : <Copy size={12} />}
+                  {copied ? 'Copied' : 'Copy'}
+                </motion.button>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(124,58,237,0.1)' }}>
+                  <Phone size={14} className="text-[#8B5CF6]" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider font-semibold">Phone</div>
+                  <a href="tel:+8801942791004" className="text-xs font-medium text-[var(--color-text-primary)] hover:text-[#8B5CF6] transition-colors">
+                    +880 1942791004
+                  </a>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(16,185,129,0.1)' }}>
+                  <MapPin size={14} className="text-[#10B981]" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-[var(--color-text-secondary)] uppercase tracking-wider font-semibold">Location</div>
+                  <div className="text-xs font-medium text-[var(--color-text-primary)]">Rangpur, Bangladesh</div>
+                </div>
+              </div>
             </div>
 
             {/* Social links */}
             <div className="flex gap-2">
               {[
-                { icon: GitBranch, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub' },
-                { icon: Link2, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn' },
-                { icon: Mail, href: 'mailto:sojibahmedshorif25@gmail.com', label: 'Email' },
+                { icon: FaGithub, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub' },
+                { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/sojib-ahmed-shorif', label: 'LinkedIn' },
+                { icon: FaEnvelope, href: 'mailto:sojibahmedshorif998@gmail.com', label: 'Email' },
               ].map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   whileHover={{ scale: 1.1, y: -2 }}
-                  className="social-icon"
+                  className="social-icon flex items-center justify-center text-[var(--color-text-secondary)] hover:text-white"
                   aria-label={label}
                 >
                   <Icon size={16} />

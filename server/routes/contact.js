@@ -83,7 +83,7 @@ router.post('/', contactRateLimiter, async (req, res) => {
               <p style="margin: 0; color: #8B5CF6; font-size: 14px;">Your message:</p>
               <p style="margin: 8px 0 0; color: #6B7280; font-size: 14px; line-height: 1.6;">${message}</p>
             </div>
-            <p style="color: #6B7280; font-size: 13px; margin-top: 24px;">— Sojib Ahmed<br>MERN Stack Developer · Rangpur, Bangladesh</p>
+            <p style="color: #6B7280; font-size: 13px; margin-top: 24px;">— Sojib Ahmed<br>Full Stack Developer · Rangpur, Bangladesh</p>
           </div>
         `,
       });

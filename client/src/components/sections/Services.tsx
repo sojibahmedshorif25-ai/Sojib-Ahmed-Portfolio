@@ -8,7 +8,7 @@ const services = [
     icon: Layers,
     color: '#7C3AED',
     title: 'Full Stack Development',
-    description: 'End-to-end MERN stack applications — from database architecture to polished UI. I handle everything.',
+    description: 'End-to-end full-stack web applications — from database architecture to polished UI. I handle everything.',
     features: ['React.js + Next.js frontend', 'Node.js + Express backend', 'MongoDB + Mongoose database', 'JWT + Firebase authentication', 'Cloud deployment (Vercel + Render)'],
     popular: true,
   },
@@ -97,9 +97,10 @@ export default function Services() {
                 className="card p-8 group relative"
               >
                 {service.popular && (
-                  <div className="absolute -top-3 left-6">
-                    <span className="text-[10px] font-bold px-3 py-1 rounded-full text-white"
+                  <div className="absolute top-5 right-5 z-10">
+                    <span className="text-[11px] font-bold px-3 py-1 rounded-full text-white shadow-lg shadow-[rgba(6,182,212,0.3)] border border-white/20 inline-flex items-center gap-1.5"
                       style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
                       Most Popular
                     </span>
                   </div>

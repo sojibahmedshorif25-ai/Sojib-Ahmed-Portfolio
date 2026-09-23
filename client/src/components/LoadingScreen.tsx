@@ -87,7 +87,7 @@ export default function LoadingScreen() {
               className="text-sm tracking-[0.3em] mt-1"
               style={{ color: '#7C3AED' }}
             >
-              MERN STACK DEVELOPER
+              FULL STACK DEVELOPER
             </motion.p>
           </div>
 

@@ -7,7 +7,7 @@ const stats = [
   { value: '100%', label: 'Passion' },
 ];
 
-const ticker = '8+ Months Intensive Learning • 10+ Projects Built • 15+ Technologies Mastered • MERN Stack Developer • React • Node.js • MongoDB • TypeScript • Available for Hire';
+const ticker = '8+ Months Intensive Learning • 10+ Projects Built • 15+ Technologies Mastered • Full Stack Developer • React • Node.js • MongoDB • TypeScript • Available for Hire';
 
 export default function TrustBar() {
   return (

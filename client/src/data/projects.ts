@@ -49,7 +49,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/JOB-STUDENT-TASK',
     color: '#7C3AED',
     accentColor: '#06B6D4',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/skillforge.png',
   },
   {
     id: 'investprop-ai',
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/Investprop-Ai',
     color: '#06B6D4',
     accentColor: '#7C3AED',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/investprop.png',
   },
   {
     id: 'typemarket',
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/TypeScript-Project',
     color: '#3178C6',
     accentColor: '#06B6D4',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/typemarket.png',
   },
   {
     id: 'pet-adoption',
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/Pet-Adoption-Client',
     color: '#10B981',
     accentColor: '#7C3AED',
-    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/petadoption.png',
   },
 
   // ═══════════════════════════
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/keenkeper-website',
     color: '#8B5CF6',
     accentColor: '#06B6D4',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/keenkeeper.png',
   },
   {
     id: 'github-issue-tracker',
@@ -178,7 +178,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/github-issue-tracker',
     color: '#EC4899',
     accentColor: '#7C3AED',
-    image: 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/issuetracker.png',
   },
   {
     id: 'digitools',
@@ -203,7 +203,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/digitools-platfrom-1',
     color: '#F59E0B',
     accentColor: '#06B6D4',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/digitools.png',
   },
 
   // ═══════════════════════════
@@ -233,7 +233,7 @@ export const projects: Project[] = [
     docsUrl: 'https://pet-adoption-server-6v5r.onrender.com',
     color: '#10B981',
     accentColor: '#06B6D4',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/petadoption.png',
   },
   {
     id: 'job-finder-server',
@@ -258,7 +258,7 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/Job-Finder',
     color: '#06B6D4',
     accentColor: '#7C3AED',
-    image: 'https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/skillforge.png',
   },
   {
     id: 'job-tracker-backend',
@@ -283,6 +283,6 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/sojibahmedshorif25-ai/job-tracker',
     color: '#7C3AED',
     accentColor: '#EC4899',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/typemarket.png',
   },
 ];

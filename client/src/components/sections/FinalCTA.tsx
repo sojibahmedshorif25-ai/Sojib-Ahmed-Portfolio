@@ -6,7 +6,7 @@ export default function FinalCTA() {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
 
   return (
-    <section className="relative py-32 overflow-hidden" ref={ref}>
+    <section className="relative py-16 sm:py-20 overflow-hidden" ref={ref}>
       {/* Background */}
       <div className="absolute inset-0"
         style={{ background: 'radial-gradient(ellipse at center, rgba(124,58,237,0.1) 0%, transparent 60%)' }} />
@@ -50,7 +50,7 @@ export default function FinalCTA() {
             </motion.button>
 
             <motion.a
-              href="mailto:sojibahmedshorif25@gmail.com"
+              href="mailto:sojibahmedshorif998@gmail.com"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               className="btn-secondary text-base px-8 py-4"

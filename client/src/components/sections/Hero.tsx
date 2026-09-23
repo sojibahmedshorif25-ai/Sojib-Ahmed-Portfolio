@@ -1,22 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, GitBranch, Link2, Mail, ChevronDown, MapPin, Terminal, Zap, Globe } from 'lucide-react';
+import { ArrowRight, Download, ChevronDown, MapPin, Terminal, Zap, Globe } from 'lucide-react';
+import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa6';
 
 const terminalLines = [
   { prompt: '$', command: 'whoami', output: 'Sojib Ahmed', delay: 500 },
-  { prompt: '$', command: 'role', output: 'MERN Stack Developer', delay: 1200 },
+  { prompt: '$', command: 'role', output: 'Full Stack Developer', delay: 1200 },
   { prompt: '$', command: 'location', output: 'Rangpur, Bangladesh 🌏', delay: 2000 },
   { prompt: '$', command: 'status', output: 'Building something awesome... 🚀', delay: 2800 },
   { prompt: '$', command: 'available', output: 'true // Full-time | Freelance | Remote ✅', delay: 3600 },
-];
-
-const floatingTech = [
-  { name: 'React', color: '#61DAFB', x: 15, y: 20 },
-  { name: 'Node', color: '#339933', x: 80, y: 15 },
-  { name: 'MongoDB', color: '#47A248', x: 85, y: 75 },
-  { name: 'Express', color: '#888', x: 10, y: 70 },
-  { name: 'TypeScript', color: '#3178C6', x: 50, y: 5 },
-  { name: 'Next.js', color: '#fff', x: 90, y: 45 },
 ];
 
 function TerminalWindow() {
@@ -46,14 +38,14 @@ function TerminalWindow() {
   }, []);
 
   return (
-    <div className="terminal w-full max-w-sm">
+    <div className="terminal w-full">
       <div className="terminal-header">
         <div className="terminal-dot bg-[#FF5F56]" />
         <div className="terminal-dot bg-[#FFBD2E]" />
         <div className="terminal-dot bg-[#27C93F]" />
         <span className="ml-2 text-xs text-[var(--color-text-secondary)]">sojib@portfolio ~ bash</span>
       </div>
-      <div className="terminal-body space-y-1 min-h-[180px]">
+      <div className="terminal-body space-y-1.5 min-h-[190px]">
         {terminalLines.map((line, i) => {
           const isTyping = typingLine === i;
           const isDone = visibleLines.includes(i);
@@ -193,7 +185,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12">
+    <section id="home" className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 pb-10">
       {/* Particle canvas */}
       <canvas
         ref={canvasRef}
@@ -209,8 +201,8 @@ export default function Hero() {
       <div className="orb orb-violet absolute top-20 left-[-100px] w-[500px] h-[500px] opacity-20" aria-hidden="true" />
       <div className="orb orb-cyan absolute bottom-20 right-[-100px] w-[400px] h-[400px] opacity-15" aria-hidden="true" />
 
-      <div className="container-custom relative z-10 py-16 sm:py-20 lg:py-32">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-20 items-center">
+      <div className="container-custom relative z-10 py-8 sm:py-12 lg:py-16">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-14 items-center">
           {/* Left Content - 60% */}
           <div className="lg:col-span-3">
             {/* Status badge */}
@@ -218,11 +210,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-3 mb-10"
+              className="inline-flex items-center gap-3 mb-6 sm:mb-8"
             >
-              <div className="flex items-center gap-2 px-3 py-2 sm:px-6 sm:py-3 rounded-full glass border border-[rgba(16,185,129,0.3)]">
+              <div className="flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full glass border border-[rgba(16,185,129,0.3)] shadow-sm shadow-[rgba(16,185,129,0.1)]">
                 <div className="status-dot" />
-                <span className="text-[10px] sm:text-sm font-semibold text-[#10B981] tracking-wider uppercase">
+                <span className="text-[11px] sm:text-xs font-semibold text-[#10B981] tracking-wider uppercase">
                   Available for Freelance & Full-Time
                 </span>
               </div>
@@ -234,10 +226,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <p className="text-base sm:text-xl text-[var(--color-text-secondary)] mb-2 sm:mb-4 font-medium">
+              <p className="text-base sm:text-lg text-[var(--color-text-secondary)] mb-2 font-medium">
                 Hey, I'm 👋
               </p>
-              <h1 className="text-[clamp(32px,7vw,100px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-4 sm:mb-8">
+              <h1 className="text-[clamp(36px,6.5vw,84px)] font-black leading-none tracking-tight text-[var(--color-text-primary)] mb-4 sm:mb-6">
                 Sojib Ahmed
               </h1>
             </motion.div>
@@ -247,9 +239,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-8"
+              className="mb-6"
             >
-              <h2 className="text-[clamp(16px,3.5vw,36px)] font-bold leading-snug text-[var(--color-text-primary)]">
+              <h2 className="text-[clamp(18px,3vw,32px)] font-bold leading-snug text-[var(--color-text-primary)]">
                 Building Digital Experiences{' '}
                 <span className="gradient-text">That Actually Make an Impact.</span>
               </h2>
@@ -260,7 +252,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-sm sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mb-6 sm:mb-12"
+              className="text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mb-6 sm:mb-8"
             >
               I build scalable, high-performance and user-focused web applications using modern JavaScript technologies — from beautiful frontends to robust backends.
             </motion.p>
@@ -278,8 +270,8 @@ export default function Hero() {
                 { value: '15+', label: 'Technologies' },
                 { value: '100%', label: 'Passion' },
               ].map(({ value, label }) => (
-                <div key={label} className="text-center">
-                  <div className="text-xl font-black gradient-text leading-none">{value}</div>
+                <div key={label} className="text-left pr-3 border-r last:border-r-0 border-[rgba(255,255,255,0.08)]">
+                  <div className="text-xl sm:text-2xl font-black gradient-text leading-none">{value}</div>
                   <div className="text-[11px] text-[var(--color-text-secondary)] mt-1">{label}</div>
                 </div>
               ))}
@@ -290,7 +282,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8"
+              className="flex flex-wrap gap-2.5 sm:gap-3 mb-6 sm:mb-8"
             >
               <motion.button
                 whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(124,58,237,0.4)' }}
@@ -332,30 +324,30 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-3 sm:gap-4"
             >
               <span className="text-xs text-[var(--color-text-secondary)]">Find me on:</span>
               {[
-                { icon: GitBranch, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub', id: 'social-GitHub' },
-                { icon: Link2, href: 'https://linkedin.com/in/sojibahmedshorif25-ai', label: 'LinkedIn', id: 'social-LinkedIn' },
-                { icon: Mail, href: 'mailto:sojibahmedshorif25@gmail.com', label: 'Email', id: 'social-email' },
+                { icon: FaGithub, href: 'https://github.com/sojibahmedshorif25-ai', label: 'GitHub', id: 'social-GitHub' },
+                { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/sojib-ahmed-shorif', label: 'LinkedIn', id: 'social-LinkedIn' },
+                { icon: FaEnvelope, href: 'mailto:sojibahmedshorif998@gmail.com', label: 'Email', id: 'social-email' },
               ].map(({ icon: Icon, href, label, id }) => (
                 <motion.a
                   key={id}
                   id={id}
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
-                  rel="noopener noreferrer"
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="social-icon"
+                  className="social-icon flex items-center justify-center text-[var(--color-text-secondary)] hover:text-white"
                   aria-label={label}
                 >
                   <Icon size={17} />
                 </motion.a>
               ))}
-              <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] ml-2">
-                <MapPin size={12} className="text-[#7C3AED]" />
+              <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] ml-1">
+                <MapPin size={12} className="text-[#06B6D4]" />
                 Rangpur, Bangladesh
               </div>
             </motion.div>
@@ -371,36 +363,18 @@ export default function Hero() {
             >
               {/* Developer Command Center */}
               <div className="relative space-y-4">
-                {/* Profile / Avatar Card */}
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glass rounded-2xl p-5 border border-[rgba(124,58,237,0.2)]"
-                >
-                  <div className="flex items-center gap-4 mb-4">
-                    {/* Avatar */}
-                    <div className="relative">
-                      <div className="w-16 h-16 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(124,58,237,0.3)]">
-                        <img src="/images/hero.jpg" alt="Sojib Ahmed" className="w-full h-full object-cover" />
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#10B981] rounded-full border-2 border-[#050508]" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-[var(--color-text-primary)]">Sojib Ahmed</div>
-                      <div className="text-sm text-[#8B5CF6]">MERN Stack Developer</div>
-                      <div className="flex items-center gap-1 mt-1">
-                        <div className="status-dot" style={{ width: 6, height: 6 }} />
-                        <span className="text-xs text-[#10B981]">Open to work</span>
-                      </div>
-                    </div>
+                {/* Tech Badges Row */}
+                <div className="glass rounded-xl p-3 border border-[rgba(124,58,237,0.2)] flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
+                    <span className="text-xs font-mono font-semibold text-[var(--color-text-primary)]">FULL STACK STACK</span>
                   </div>
-
-                  {/* Tech stack row */}
                   <div className="flex flex-wrap gap-1.5">
                     {['React', 'Node.js', 'MongoDB', 'TypeScript', 'Next.js'].map(tech => (
-                      <span key={tech} className="tech-badge text-[11px]">{tech}</span>
+                      <span key={tech} className="tech-badge text-[10px] px-2 py-0.5">{tech}</span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Terminal */}
                 <TerminalWindow />
@@ -414,35 +388,15 @@ export default function Hero() {
                   ].map(({ icon: Icon, label, value }) => (
                     <motion.div
                       key={label}
-                      whileHover={{ scale: 1.05, borderColor: 'rgba(124,58,237,0.5)' }}
+                      whileHover={{ scale: 1.05, borderColor: 'rgba(6,182,212,0.5)' }}
                       className="glass rounded-xl p-3 text-center border border-[rgba(124,58,237,0.15)] transition-all"
                     >
-                      <Icon size={16} className="text-[#7C3AED] mx-auto mb-1" />
+                      <Icon size={16} className="text-[#06B6D4] mx-auto mb-1" />
                       <div className="text-lg font-bold gradient-text">{value}</div>
                       <div className="text-[10px] text-[var(--color-text-secondary)]">{label}</div>
                     </motion.div>
                   ))}
                 </div>
-
-                {/* Floating tech icons */}
-                {floatingTech.map((tech, i) => (
-                  <motion.div
-                    key={tech.name}
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-                    className="absolute hidden xl:flex items-center justify-center w-10 h-10 rounded-xl text-xs font-bold glass border border-[rgba(124,58,237,0.2)]"
-                    style={{
-                      left: `${tech.x}%`,
-                      top: `${tech.y}%`,
-                      color: tech.color,
-                      transform: `translate(-50%, -50%)`,
-                      zIndex: 10,
-                    }}
-                    title={tech.name}
-                  >
-                    {tech.name.slice(0, 2)}
-                  </motion.div>
-                ))}
               </div>
             </motion.div>
           </div>
@@ -453,16 +407,16 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="mt-12 flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-[var(--color-text-secondary)] tracking-wider uppercase">
+          <span className="text-[11px] text-[var(--color-text-secondary)] tracking-widest uppercase">
             Scroll to explore
           </span>
           <motion.div
-            animate={{ y: [0, 6, 0] }}
+            animate={{ y: [0, 5, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <ChevronDown size={20} className="text-[#7C3AED]" />
+            <ChevronDown size={18} className="text-[#06B6D4]" />
           </motion.div>
         </motion.div>
       </div>

@@ -46,7 +46,7 @@ export default function Process() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
           <div className="section-badge mx-auto w-fit mb-3">
             <span>⚙️</span> Process

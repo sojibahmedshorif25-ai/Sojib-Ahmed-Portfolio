@@ -13,7 +13,7 @@ const stagger = {
 };
 
 const traits = [
-  { icon: Code2, color: '#7C3AED', title: 'Who I Am', desc: 'A dedicated MERN Stack Developer from Rangpur, Bangladesh with a passion for building products that matter.' },
+  { icon: Code2, color: '#7C3AED', title: 'Who I Am', desc: 'A dedicated Full Stack Developer from Rangpur, Bangladesh with a passion for building products that matter.' },
   { icon: Brain, color: '#06B6D4', title: 'How I Think', desc: 'I approach problems systematically — breaking complex challenges into clean, maintainable solutions.' },
   { icon: Heart, color: '#EC4899', title: 'Why I Care', desc: 'I believe great software is about the people using it. UX is never an afterthought in my work.' },
   { icon: Rocket, color: '#10B981', title: 'What Drives Me', desc: "Commitment to real-world impact. I don't build for demos — I build for users and production." },
@@ -33,7 +33,7 @@ export default function About() {
           variants={stagger}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-14"
         >
           <motion.div variants={fadeUp} className="section-badge mx-auto w-fit">
             <span>👤</span> About Me
@@ -47,7 +47,7 @@ export default function About() {
         </motion.div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-5 gap-20 items-start">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
           {/* Left: Profile */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -56,40 +56,41 @@ export default function About() {
             className="lg:col-span-2"
           >
             {/* Avatar */}
-            <div className="relative mb-12">
+            <div className="relative mb-8">
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 className="relative w-full max-w-sm mx-auto lg:mx-0"
               >
                 {/* Glow border */}
-                <div className="absolute -inset-1 rounded-3xl opacity-60 blur-sm"
-                  style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }} />
+                <div className="absolute -inset-1 rounded-3xl opacity-70 blur-md"
+                  style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4, #10B981)' }} />
                 
-                <div className="relative rounded-3xl overflow-hidden aspect-square bg-gradient-to-br from-[rgba(124,58,237,0.2)] to-[rgba(6,182,212,0.1)] flex items-center justify-center"
-                  style={{ background: 'var(--color-surface-2)' }}>
-                  {/* Profile Image Replacement */}
-                  <div className="w-full h-full relative p-1 rounded-2xl overflow-hidden bg-[var(--color-surface)]">
-                    <img src="/images/hero.jpg" alt="Sojib Ahmed" className="w-full h-full object-cover rounded-2xl opacity-90" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] to-transparent opacity-60"></div>
+                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] p-1 bg-gradient-to-b from-[rgba(124,58,237,0.3)] to-[rgba(6,182,212,0.2)] shadow-2xl">
+                  {/* Profile Image with crisp rendering */}
+                  <div className="w-full h-full relative rounded-2xl overflow-hidden bg-[#050508]">
+                    <img
+                      src="/images/hero.jpg"
+                      alt="Sojib Ahmed - Full Stack Developer"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                    />
+                    {/* Subtle bottom gradient vignette */}
+                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050508]/80 to-transparent pointer-events-none" />
                   </div>
-
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(5,5,8,0.4)] to-transparent" />
                 </div>
 
                 {/* Status badge */}
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 px-6 py-3 rounded-full glass border border-[rgba(16,185,129,0.3)] whitespace-nowrap">
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2.5 px-6 py-2.5 rounded-full glass border border-[rgba(16,185,129,0.4)] shadow-xl whitespace-nowrap">
                   <div className="status-dot" />
-                  <span className="text-sm font-semibold text-[#10B981]">Available Now</span>
+                  <span className="text-sm font-semibold text-[#10B981]">Available for Hire</span>
                 </div>
               </motion.div>
             </div>
 
             {/* Quick info */}
-            <div className="mt-12 space-y-4">
+            <div className="mt-8 space-y-3">
               {[
                 { icon: MapPin, label: 'Location', value: 'Rangpur, Bangladesh' },
-                { icon: Code2, label: 'Specialization', value: 'MERN Stack' },
+                { icon: Code2, label: 'Specialization', value: 'Full Stack Development' },
                 { icon: Rocket, label: 'Experience', value: '8+ Months Intensive' },
                 { icon: CheckCircle2, label: 'Status', value: 'Open to Opportunities' },
               ].map(({ icon: Icon, label, value }) => (
@@ -118,7 +119,7 @@ export default function About() {
             {/* Intro paragraph */}
             <motion.div variants={fadeUp}>
               <p className="text-lg text-[var(--color-text-secondary)] leading-loose mb-6">
-                I'm <span className="text-[var(--color-text-primary)] font-semibold">Sojib Ahmed</span>, a passionate MERN Stack Developer who completed an{' '}
+                I'm <span className="text-[var(--color-text-primary)] font-semibold">Sojib Ahmed</span>, a passionate Full Stack Developer who completed an{' '}
                 <span className="gradient-text font-semibold">8-month intensive full-stack web development program</span>{' '}
                 at Programming Hero, building 10+ real-world projects along the way.
               </p>

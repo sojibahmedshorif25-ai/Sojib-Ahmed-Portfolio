@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import LoadingScreen from './components/LoadingScreen';
-import CustomCursor from './components/layout/CustomCursor';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ScrollProgress from './components/layout/ScrollProgress';
@@ -41,9 +40,6 @@ function App() {
       <div className={`relative min-h-screen ${theme}`} style={{ background: 'var(--color-bg)' }}>
         {/* Noise texture overlay */}
         <div className="noise-overlay" aria-hidden="true" />
-        
-        {/* Custom cursor (desktop only) */}
-        <CustomCursor />
         
         {/* Scroll progress bar */}
         <ScrollProgress />

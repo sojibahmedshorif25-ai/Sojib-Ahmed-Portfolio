@@ -8,7 +8,6 @@ const navLinks = [
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Services', href: '#services' },
-  { label: 'Blog', href: '#blog' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -19,20 +18,22 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
 
       // Update active section
-      const sections = navLinks.map(l => l.href.replace('#', ''));
-      for (const section of sections.reverse()) {
-        const el = document.getElementById(section);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(section);
+      const scrollPos = window.scrollY + 180;
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const id = navLinks[i].href.replace('#', '');
+        const el = document.getElementById(id);
+        if (el && scrollPos >= el.offsetTop) {
+          setActiveSection(id);
           break;
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -51,35 +52,39 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-[9000] transition-all duration-300 ${
           scrolled
-            ? 'glass border-b border-[rgba(124,58,237,0.15)]'
+            ? 'bg-[#030712]/85 backdrop-blur-md border-b border-[rgba(124,58,237,0.15)] shadow-lg shadow-black/20'
             : 'bg-transparent'
         }`}
       >
         <div className="container-custom">
-          <nav className="flex items-center justify-between h-16 sm:h-20 md:h-28" aria-label="Main navigation">
+          <nav className="flex items-center justify-between h-16 sm:h-20" aria-label="Main navigation">
             {/* Logo */}
             <motion.a
               id="nav-logo"
               href="#home"
               onClick={() => handleNavClick('#home')}
-              className="relative flex items-center gap-4 group"
+              className="relative flex items-center gap-3 group cursor-pointer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               aria-label="Sojib Ahmed - Home"
             >
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}>
-                <span className="text-white font-bold text-base sm:text-xl leading-none">SA</span>
-                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
+              <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl p-[1px] bg-gradient-to-tr from-[#7C3AED] via-[#06B6D4] to-[#10B981] shadow-md shadow-[rgba(124,58,237,0.25)] flex-shrink-0">
+                <div className="w-full h-full bg-[#050508] rounded-[11px] flex items-center justify-center relative overflow-hidden group-hover:bg-[#090D1A] transition-colors">
+                  <span className="font-extrabold text-sm sm:text-base bg-gradient-to-r from-[#A78BFA] via-[#22D3EE] to-[#34D399] bg-clip-text text-transparent">SA</span>
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
               </div>
-              <div className="hidden sm:block">
-                <div className="text-base font-bold text-[var(--color-text-primary)] leading-tight">Sojib Ahmed</div>
-                <div className="text-sm text-[var(--color-text-secondary)]">MERN Stack Dev</div>
+              <div className="flex flex-col justify-center">
+                <div className="text-[14px] sm:text-[15px] font-bold text-white group-hover:text-[#22D3EE] transition-colors leading-tight flex items-center gap-1.5">
+                  Sojib Ahmed
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block animate-pulse" />
+                </div>
+                <div className="text-[11px] font-medium text-[var(--color-text-secondary)] tracking-wide mt-0.5">Full Stack Developer</div>
               </div>
             </motion.a>
 
             {/* Desktop Nav Links */}
-            <ul className="hidden lg:flex items-center gap-8" role="list">
+            <ul className="hidden lg:flex items-center gap-7" role="list">
               {navLinks.map((link) => {
                 const id = link.href.replace('#', '');
                 const isActive = activeSection === id;
@@ -87,10 +92,10 @@ export default function Navbar() {
                   <li key={link.label}>
                     <button
                       onClick={() => handleNavClick(link.href)}
-                      className={`relative px-2 py-2 text-base font-medium rounded-lg transition-all duration-200 ${
+                      className={`relative px-2 py-1.5 text-sm font-medium transition-all duration-200 ${
                         isActive
-                          ? 'text-[#8B5CF6]'
-                          : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+                          ? 'text-[#06B6D4]'
+                          : 'text-[var(--color-text-secondary)] hover:text-white'
                       }`}
                       aria-current={isActive ? 'page' : undefined}
                     >
@@ -98,7 +103,7 @@ export default function Navbar() {
                       {isActive && (
                         <motion.div
                           layoutId="nav-indicator"
-                          className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full"
+                          className="absolute -bottom-1 left-2 right-2 h-[2px] rounded-full"
                           style={{ background: 'linear-gradient(90deg, #7C3AED, #06B6D4)' }}
                           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                         />

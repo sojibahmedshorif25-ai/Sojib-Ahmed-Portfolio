@@ -16,7 +16,7 @@ export default function Certificates() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <div className="section-badge mx-auto w-fit mb-3">
             <span>🏆</span> Certifications
@@ -32,20 +32,19 @@ export default function Certificates() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8"
         >
           {certificates.filter(c => c.featured).map((cert) => (
             <motion.div
               key={cert.id}
               whileHover={{ scale: 1.01 }}
-              className="card p-8 relative overflow-hidden"
+              className="card p-6 sm:p-8 relative overflow-hidden"
               style={{ border: '1px solid rgba(124,58,237,0.3)' }}
             >
               {/* Featured glow */}
               <div className="absolute top-0 left-0 right-0 h-px"
                 style={{ background: 'linear-gradient(90deg, transparent, #7C3AED, #06B6D4, transparent)' }} />
               
-              <div className="grid md:grid-cols-3 gap-10 items-center">
+              <div className="grid md:grid-cols-3 gap-8 md:gap-10 items-center">
                 {/* Certificate visual */}
                 <div className="md:col-span-1">
                   <div className="aspect-[4/3] rounded-2xl flex items-center justify-center overflow-hidden"
@@ -71,7 +70,7 @@ export default function Certificates() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 mb-5 text-sm">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-5 text-sm">
                     <div>
                       <span className="text-xs text-[var(--color-text-secondary)] block mb-0.5">Period</span>
                       <span className="text-[var(--color-text-primary)] font-medium">{cert.date}</span>
@@ -97,7 +96,7 @@ export default function Certificates() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-3">
                     <motion.a
                       href={cert.verifyUrl}
                       target="_blank"
@@ -127,44 +126,6 @@ export default function Certificates() {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Other certificates */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {certificates.filter(c => !c.featured).map((cert, i) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-              whileHover={{ scale: 1.02, y: -4 }}
-              className="card p-5"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="text-2xl">{cert.issuerLogo}</div>
-                <div>
-                  <h4 className="text-sm font-bold text-[var(--color-text-primary)]">{cert.title}</h4>
-                  <p className="text-xs text-[var(--color-text-secondary)]">{cert.issuer}</p>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between mb-3 text-xs text-[var(--color-text-secondary)]">
-                <span>{cert.date}</span>
-                <span>{cert.duration}</span>
-              </div>
-
-              <a
-                href={cert.verifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-medium text-[#8B5CF6] hover:text-[#7C3AED] transition-colors"
-                id={`cert-link-${cert.id}`}
-              >
-                <ExternalLink size={12} />
-                Verify Certificate
-              </a>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );
