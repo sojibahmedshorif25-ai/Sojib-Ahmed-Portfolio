@@ -51,7 +51,7 @@ export const testimonials: Testimonial[] = [
     company: 'Tech Community',
     avatar: 'RH',
     rating: 5,
-    quote: "Sojib's approach to problem-solving is methodical and efficient. His Pet Adoption Platform is a great example of clean full-stack implementation. He clearly understands how to build real-world applications, not just tutorial projects.",
+    quote: "Sojib's approach to problem-solving is methodical and efficient. His Pet Adoption Platform is a great example of clean MERN stack implementation. He clearly understands how to build real-world applications, not just tutorial projects.",
     relation: 'Code Reviewer',
   },
   {
