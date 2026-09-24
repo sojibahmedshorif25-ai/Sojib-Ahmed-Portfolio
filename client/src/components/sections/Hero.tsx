@@ -306,7 +306,7 @@ export default function Hero() {
               </motion.button>
 
               <motion.a
-                href="https://drive.google.com/file/d/1d2XvAZkY2ISC3koXCTLJyHlQ64hGZ5UG/view?usp=sharing"
+                href="https://drive.google.com/file/d/1ZXLmT6IFoQrGrZBFotiZmpof0iuKOJeg/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}

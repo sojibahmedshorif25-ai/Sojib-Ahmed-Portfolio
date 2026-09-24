@@ -202,7 +202,7 @@ export default function Navbar() {
 
             <div className="p-6 border-t border-[rgba(124,58,237,0.15)]">
               <a
-                href="https://drive.google.com/file/d/1d2XvAZkY2ISC3koXCTLJyHlQ64hGZ5UG/view?usp=sharing"
+                href="https://drive.google.com/file/d/1ZXLmT6IFoQrGrZBFotiZmpof0iuKOJeg/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary w-full justify-center"
