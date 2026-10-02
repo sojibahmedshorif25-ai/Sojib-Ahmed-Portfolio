@@ -28,17 +28,11 @@ Technical Skills:
 - Deployment: Vercel, Render, Netlify, Railway
 - Tools: Git, GitHub, VS Code, Postman
 
-Projects (10+):
-1. InvestProp AI - AI real estate platform (React, Node, MongoDB, Firebase, JWT, Gemini)
-2. Job Finder - Full-stack job board (React, Node, MongoDB, JWT, Firebase)
-3. Pet Adoption Platform - Community adoption website (React, Node, MongoDB, Firebase)
-4. E-Commerce Platform - Full store with Stripe (Next.js, TypeScript, Node, MongoDB, Stripe)
-5. Portfolio Dashboard - Admin analytics UI (React, TypeScript, Recharts, Framer Motion)
-6. AI Chat Interface - Modern chat UI (React, TypeScript, Gemini API)
-7. Restaurant Website - Premium food ordering (Next.js, TypeScript, Framer Motion)
-8. RESTful API Service - Job board backend (Node, Express, MongoDB, JWT, Swagger)
-9. Authentication System - Multi-provider auth (Node, JWT, Firebase, OAuth, RBAC)
-10. Real-Time Chat API - WebSocket backend (Node, Socket.IO, MongoDB, Redis)
+Projects:
+1. ShopX BD Enterprise - Hyperlocal Multi-Vendor E-Commerce & DEX Logistics (React 19, TypeScript, Node.js, Express.js, MongoDB Atlas, Upstash Redis, Leaflet Maps, Nodemailer)
+2. FoodFlow (Team Project) - AI Multi-Vendor Food Delivery Platform (Next.js 15, React 19, TypeScript, Node.js, Express.js, MongoDB Atlas, Socket.IO, Gemini AI, Stripe)
+3. SkillForge - AI Learning, Code Sandbox & Recruitment Platform (Next.js 16, React 19, TypeScript, Express.js, MongoDB Atlas, Better Auth, Docker, GitHub Actions, React Query)
+4. StartupForge - AI Startup Team Ecosystem & ATS Platform (React.js, Node.js, Express.js, MongoDB, Socket.IO, WebRTC, Gemini AI, Stripe, PWA)
 
 Services offered:
 - Full Stack Web Development
@@ -53,8 +47,8 @@ If asked about things not related to Sojib, redirect politely.`;
 
 // Fallback responses
 const FALLBACKS = {
-  skills: "Sojib is proficient in **Full Stack Web Development** — React.js, Next.js, Node.js, MongoDB, Express.js, TypeScript, Tailwind CSS, JWT, Firebase, Socket.IO, and AI integration (Gemini/OpenAI). He has 15+ technologies in his arsenal!",
-  projects: "Sojib has built **10+ projects**:\n• **InvestProp AI** — AI real estate platform\n• **Job Finder** — Full-stack job board\n• **Pet Adoption Platform** — Community website\n• **E-Commerce** — With Stripe payments\n\nCheck the Projects section for all details!",
+  skills: "Sojib is proficient in **Full Stack Web Development** — React 19, Next.js 16, TypeScript, Node.js, Express.js, MongoDB Atlas, Upstash Redis, Socket.IO, WebRTC, Docker, and AI integrations (Gemini API).",
+  projects: "Sojib has built high-impact **flagship full-stack projects**:\n• **ShopX BD Enterprise** — Multi-vendor ecommerce & DEX logistics\n• **FoodFlow** — AI food delivery with live GPS telemetry\n• **SkillForge** — AI learning sandbox & ATS recruitment\n• **StartupForge** — AI startup ecosystem & WebRTC video interviews\n\nCheck the Projects section for live demos and code!",
   available: "Yes! Sojib is **currently available** for:\n✓ Full-time positions\n✓ Freelance projects\n✓ Remote opportunities\n\nContact: sojibahmedshorif998@gmail.com | +880 1942791004",
   default: "I'm Sojib's AI assistant! Ask me about his **skills**, **projects**, **services**, **experience**, or **availability**. I'm here to help! 🚀",
 };
