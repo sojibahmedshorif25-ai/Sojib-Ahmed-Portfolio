@@ -171,6 +171,19 @@ export default function Projects() {
                     </div>
                   </div>
 
+                  
+                  {/* Demo Login Credentials */}
+                  {(project as any).credentials && (
+                    <div className="mb-4 p-3 rounded-xl bg-[#3178C6]/10 border border-[#3178C6]/30 text-xs text-[#93C5FD]">
+                      <div className="font-semibold text-white flex items-center gap-1.5 mb-1 text-[11px]">
+                        <span>🔑</span> Demo Login Credentials:
+                      </div>
+                      <div className="font-mono text-[10px] text-gray-300 space-y-0.5">
+                        <div><strong className="text-white">User:</strong> {(project as any).credentials.user}</div>
+                        <div><strong className="text-white">Admin:</strong> {(project as any).credentials.admin}</div>
+                      </div>
+                    </div>
+                  )}
                   {/* Key features (hover) */}
                   <AnimatePresence>
                     {hoveredProject === project.id && (
