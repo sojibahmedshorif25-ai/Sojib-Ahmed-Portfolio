@@ -52,13 +52,13 @@ export default function Footer() {
                   SOJIB AHMED<span className="text-[#06B6D4]">.</span>
                 </div>
                 <div className="text-xs font-semibold text-[#06B6D4] tracking-wide mt-1.5">
-                  Full Stack Developer
+                  Full-Stack Developer
                 </div>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed max-w-sm pt-1">
-              Passionate Full Stack Developer dedicated to building scalable, high-performance web applications with futuristic design aesthetics.
+              Full-Stack Developer focused on building scalable, high-performance, and user-focused web applications with modern technologies.
             </p>
           </div>
 

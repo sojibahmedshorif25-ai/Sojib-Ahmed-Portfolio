@@ -27,9 +27,8 @@ export default function FinalCTA() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-[clamp(36px,6vw,72px)] font-black leading-tight tracking-tight text-[var(--color-text-primary)] mb-6">
-            Let's Build Something{' '}
-            <span className="gradient-text">Exceptional.</span>
+          <h2 className="text-[clamp(32px,5vw,60px)] font-black leading-tight tracking-tight text-[var(--color-text-primary)] mb-6">
+            <span className="gradient-text">Open to Opportunities</span>
           </h2>
 
           <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -75,7 +74,7 @@ export default function FinalCTA() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-4 text-sm text-[var(--color-text-secondary)]"
           >
-            You scrolled all the way down! Here's a cookie 🍪 — now let's work together!
+            You scrolled all the way down! Here's a cookie 🍪 — open to new opportunities!
           </motion.p>
         </motion.div>
       </div>

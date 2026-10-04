@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, ChevronDown, MapPin, Terminal, Zap, Globe } from 'lucide-react';
+import { ArrowRight, Download, ChevronDown, MapPin } from 'lucide-react';
 import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa6';
 
 const terminalLines = [
@@ -215,7 +215,7 @@ export default function Hero() {
               <div className="flex items-center gap-2 px-3 py-2 sm:px-5 sm:py-2.5 rounded-full glass border border-[rgba(16,185,129,0.3)] shadow-sm shadow-[rgba(16,185,129,0.1)]">
                 <div className="status-dot" />
                 <span className="text-[11px] sm:text-xs font-semibold text-[#10B981] tracking-wider uppercase">
-                  Available for Freelance & Full-Time
+                  Open to Full-Time, Internship & Freelance
                 </span>
               </div>
             </motion.div>
@@ -242,8 +242,8 @@ export default function Hero() {
               className="mb-6"
             >
               <h2 className="text-[clamp(18px,3vw,32px)] font-bold leading-snug text-[var(--color-text-primary)]">
-                Building Digital Experiences{' '}
-                <span className="gradient-text">That Actually Make an Impact.</span>
+                Building Scalable,{' '}
+                <span className="gradient-text">Real-World Web Applications.</span>
               </h2>
             </motion.div>
 
@@ -254,8 +254,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-sm sm:text-base text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mb-6 sm:mb-8"
             >
-              I build scalable, high-performance and user-focused web applications using modern JavaScript technologies — from beautiful frontends to robust backends.
-            </motion.p>
+              Full-Stack Developer specializing in React, Next.js, TypeScript, Node.js, and modern web technologies. I build fast, secure, scalable, and user-focused web applications.</motion.p>
 
             {/* Social proof stats */}
             <motion.div
@@ -315,7 +314,7 @@ export default function Hero() {
                 id="hero-download-resume"
               >
                 <Download size={15} />
-                Resume
+                View Resume
               </motion.a>
             </motion.div>
 
@@ -379,25 +378,7 @@ export default function Hero() {
                 {/* Terminal */}
                 <TerminalWindow />
 
-                {/* Stats grid */}
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { icon: Globe, label: 'Projects', value: '10+' },
-                    { icon: Zap, label: 'Technologies', value: '15+' },
-                    { icon: Terminal, label: 'Commits', value: '200+' },
-                  ].map(({ icon: Icon, label, value }) => (
-                    <motion.div
-                      key={label}
-                      whileHover={{ scale: 1.05, borderColor: 'rgba(6,182,212,0.5)' }}
-                      className="glass rounded-xl p-3 text-center border border-[rgba(124,58,237,0.15)] transition-all"
-                    >
-                      <Icon size={16} className="text-[#06B6D4] mx-auto mb-1" />
-                      <div className="text-lg font-bold gradient-text">{value}</div>
-                      <div className="text-[10px] text-[var(--color-text-secondary)]">{label}</div>
-                    </motion.div>
-                  ))}
                 </div>
-              </div>
             </motion.div>
           </div>
         </div>

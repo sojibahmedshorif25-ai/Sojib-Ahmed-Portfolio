@@ -47,7 +47,7 @@ export default function Projects() {
           </div>
           <h2 className="section-heading">Selected Work</h2>
           <p className="section-subheading mx-auto text-center">
-            10+ real-world projects built with modern technologies and production-grade code.
+            10+ projects built with modern technologies, with a focus on full-stack development, real-time systems, AI integrations, and performance.
           </p>
         </motion.div>
 

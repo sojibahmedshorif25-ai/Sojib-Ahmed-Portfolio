@@ -39,10 +39,10 @@ export default function About() {
             <span>👤</span> About Me
           </motion.div>
           <motion.h2 variants={fadeUp} className="section-heading mt-2">
-            More Than Just a Developer.
+            About My Development Journey.
           </motion.h2>
           <motion.p variants={fadeUp} className="section-subheading mx-auto text-center">
-            A self-driven full-stack developer who transforms ideas into elegant, scalable web applications.
+            A project-driven Full-Stack Developer focused on building scalable, real-world web applications.
           </motion.p>
         </motion.div>
 
@@ -117,14 +117,12 @@ export default function About() {
             className="lg:col-span-3 space-y-12"
           >
             {/* Intro paragraph */}
-            <motion.div variants={fadeUp}>
-              <p className="text-lg text-[var(--color-text-secondary)] leading-loose mb-6">
-                I'm <span className="text-[var(--color-text-primary)] font-semibold">Sojib Ahmed</span>, a passionate Full Stack Developer who completed an{' '}
-                <span className="gradient-text font-semibold">8-month intensive full-stack web development program</span>{' '}
-                at Programming Hero, building 10+ real-world projects along the way.
+            <motion.div variants={fadeUp} className="space-y-4">
+              <p className="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+                I'm <span className="text-[var(--color-text-primary)] font-semibold">Sojib Ahmed</span>, a Full-Stack Developer who completed an intensive full-stack web development program at Programming Hero. I've built 10+ projects with hands-on experience in React, Next.js, Node.js, TypeScript, REST APIs, authentication, databases, real-time applications, AI integrations, and deployment.
               </p>
-              <p className="text-lg text-[var(--color-text-secondary)] leading-loose">
-                My focus is on crafting applications that are not just functional — but fast, secure, scalable, and a joy to use. I believe the best code is code that solves real problems elegantly.
+              <p className="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+                I enjoy turning ideas into practical, scalable, and user-focused applications while continuously improving my problem-solving and software engineering skills.
               </p>
             </motion.div>
 

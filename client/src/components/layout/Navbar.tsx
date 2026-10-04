@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, Download } from 'lucide-react';
+import { Menu, X, Download, FileText, ArrowUpRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -18,10 +18,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 20);
 
-      // Update active section
-      const scrollPos = window.scrollY + 180;
+      const scrollPos = window.scrollY + 160;
       for (let i = navLinks.length - 1; i >= 0; i--) {
         const id = navLinks[i].href.replace('#', '');
         const el = document.getElementById(id);
@@ -49,16 +48,16 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-[9000] transition-all duration-300 ${
           scrolled
-            ? 'bg-[#030712]/85 backdrop-blur-md border-b border-[rgba(124,58,237,0.15)] shadow-lg shadow-black/20'
-            : 'bg-transparent'
+            ? 'bg-[#030712]/90 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)] shadow-xl shadow-black/40 py-2.5'
+            : 'bg-transparent py-4'
         }`}
       >
         <div className="container-custom">
-          <nav className="flex items-center justify-between h-16 sm:h-20" aria-label="Main navigation">
-            {/* Logo */}
+          <nav className="flex items-center justify-between" aria-label="Main navigation">
+            {/* Left: Brand / Logo */}
             <motion.a
               id="nav-logo"
               href="#home"
@@ -68,88 +67,78 @@ export default function Navbar() {
               whileTap={{ scale: 0.98 }}
               aria-label="Sojib Ahmed - Home"
             >
-              <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl p-[1px] bg-gradient-to-tr from-[#7C3AED] via-[#06B6D4] to-[#10B981] shadow-md shadow-[rgba(124,58,237,0.25)] flex-shrink-0">
-                <div className="w-full h-full bg-[#050508] rounded-[11px] flex items-center justify-center relative overflow-hidden group-hover:bg-[#090D1A] transition-colors">
-                  <span className="font-extrabold text-sm sm:text-base bg-gradient-to-r from-[#A78BFA] via-[#22D3EE] to-[#34D399] bg-clip-text text-transparent">SA</span>
+              <div className="relative w-10 h-10 rounded-xl p-[1px] bg-gradient-to-tr from-[#7C3AED] via-[#06B6D4] to-[#10B981] shadow-md shadow-[rgba(124,58,237,0.3)] flex-shrink-0">
+                <div className="w-full h-full bg-[#050508] rounded-[11px] flex items-center justify-center relative overflow-hidden group-hover:bg-[#0B1120] transition-colors">
+                  <span className="font-black text-sm bg-gradient-to-r from-[#A78BFA] via-[#22D3EE] to-[#34D399] bg-clip-text text-transparent">
+                    SA
+                  </span>
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </div>
               <div className="flex flex-col justify-center">
                 <div className="text-[14px] sm:text-[15px] font-bold text-white group-hover:text-[#22D3EE] transition-colors leading-tight flex items-center gap-1.5">
                   Sojib Ahmed
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] inline-block animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-[#10B981] inline-block shadow-[0_0_8px_#10B981] animate-pulse" />
                 </div>
-                <div className="text-[11px] font-medium text-[var(--color-text-secondary)] tracking-wide mt-0.5">Full Stack Developer</div>
+                <div className="text-[11px] font-medium text-[var(--color-text-secondary)] tracking-wide mt-0.5">
+                  Full-Stack Developer
+                </div>
               </div>
             </motion.a>
 
-            {/* Desktop Nav Links */}
-            <ul className="hidden lg:flex items-center gap-7" role="list">
+            {/* Middle: Desktop Nav Links Pill */}
+            <div className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#0B1120]/80 border border-[rgba(255,255,255,0.06)] shadow-inner">
               {navLinks.map((link) => {
                 const id = link.href.replace('#', '');
                 const isActive = activeSection === id;
                 return (
-                  <li key={link.label}>
-                    <button
-                      onClick={() => handleNavClick(link.href)}
-                      className={`relative px-2 py-1.5 text-sm font-medium transition-all duration-200 ${
-                        isActive
-                          ? 'text-[#06B6D4]'
-                          : 'text-[var(--color-text-secondary)] hover:text-white'
-                      }`}
-                      aria-current={isActive ? 'page' : undefined}
-                    >
-                      {link.label}
-                      {isActive && (
-                        <motion.div
-                          layoutId="nav-indicator"
-                          className="absolute -bottom-1 left-2 right-2 h-[2px] rounded-full"
-                          style={{ background: 'linear-gradient(90deg, #7C3AED, #06B6D4)' }}
-                          transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                        />
-                      )}
-                    </button>
-                  </li>
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`relative px-3.5 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-[#9CA3AF] hover:text-white hover:bg-white/5'
+                    }`}
+                    aria-current={isActive ? 'page' : undefined}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-pill"
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-[#7C3AED]/80 to-[#06B6D4]/80 shadow-md shadow-[#7C3AED]/20"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <span className="relative z-10">{link.label}</span>
+                  </button>
                 );
               })}
-            </ul>
+            </div>
 
-            {/* Right Actions */}
-            <div className="flex items-center gap-4">
-              {/* AI Assistant Badge */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => {
-                  const chatBtn = document.getElementById('chatbot-trigger');
-                  chatBtn?.click();
-                }}
-                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[#8B5CF6] border border-[rgba(124,58,237,0.3)] hover:bg-[rgba(124,58,237,0.08)] transition-all"
-                aria-label="Open AI assistant"
-              >
-                <Sparkles size={13} />
-                AI Chat
-              </motion.button>
-
-              {/* Hire Me CTA */}
+            {/* Right: Actions */}
+            <div className="flex items-center gap-3">
+              {/* View Resume CTA */}
               <motion.a
-                href="#contact"
-                onClick={() => handleNavClick('#contact')}
-                whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(124,58,237,0.4)' }}
-                whileTap={{ scale: 0.98 }}
-                className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all"
-                style={{ background: 'linear-gradient(135deg, #7C3AED, #06B6D4)' }}
-                aria-label="Hire Sojib Ahmed"
+                href="https://drive.google.com/file/d/1I_yOQ82k2LqFINo5RuR_tXVEzzwAZkGx/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, boxShadow: '0 0 24px rgba(6,182,212,0.45)' }}
+                whileTap={{ scale: 0.96 }}
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-lg transition-all cursor-pointer"
+                style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%)' }}
+                aria-label="View Resume"
               >
-                Hire Me
+                <FileText size={14} />
+                <span>View Resume</span>
+                <ArrowUpRight size={13} className="opacity-80" />
               </motion.a>
 
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Menu Toggle Button */}
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.92 }}
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:bg-[rgba(124,58,237,0.08)] transition-all"
+                className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-[#0B1120] border border-[rgba(255,255,255,0.08)] text-[var(--color-text-secondary)] hover:text-white hover:border-[#06B6D4] transition-all"
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={menuOpen}
               >
@@ -160,56 +149,47 @@ export default function Navbar() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Drawer Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed inset-0 z-[8999] flex flex-col"
-            style={{ background: '#050508' }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-0 top-16 z-[8999] bg-[#030712]/98 backdrop-blur-2xl border-b border-[rgba(255,255,255,0.1)] p-6 shadow-2xl lg:hidden flex flex-col gap-4"
           >
-            <div className="flex items-center justify-between h-16 md:h-20 px-6 border-b border-[rgba(124,58,237,0.15)]">
-              <div className="text-lg font-bold gradient-text">Menu</div>
-              <button
-                onClick={() => setMenuOpen(false)}
-                className="w-10 h-10 flex items-center justify-center rounded-xl bg-[rgba(124,58,237,0.1)] text-[var(--color-text-primary)]"
-                aria-label="Close menu"
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            <nav className="flex flex-col gap-2 p-6 flex-1 overflow-y-auto" aria-label="Mobile navigation">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  key={link.label}
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  onClick={() => handleNavClick(link.href)}
-                  className="flex items-center gap-4 p-4 rounded-xl text-left hover:bg-[rgba(124,58,237,0.08)] transition-all group"
-                >
-                  <span className="text-[var(--color-text-muted)] text-sm font-mono">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="text-2xl font-bold text-[var(--color-text-primary)] group-hover:text-[#8B5CF6] transition-colors">
-                    {link.label}
-                  </span>
-                </motion.button>
-              ))}
+            <nav className="flex flex-col gap-2" role="list">
+              {navLinks.map((link) => {
+                const id = link.href.replace('#', '');
+                const isActive = activeSection === id;
+                return (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`flex items-center justify-between p-3 rounded-xl text-sm font-semibold transition-all text-left ${
+                      isActive
+                        ? 'bg-[#7C3AED]/15 text-[#06B6D4] border border-[#7C3AED]/30'
+                        : 'text-[#9CA3AF] hover:bg-white/5 hover:text-white'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#06B6D4]" />}
+                  </button>
+                );
+              })}
             </nav>
 
-            <div className="p-6 border-t border-[rgba(124,58,237,0.15)]">
+            <div className="pt-3 border-t border-[rgba(255,255,255,0.08)]">
               <a
                 href="https://drive.google.com/file/d/1I_yOQ82k2LqFINo5RuR_tXVEzzwAZkGx/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary w-full justify-center"
+                className="btn-primary w-full justify-center text-xs py-3"
                 onClick={() => setMenuOpen(false)}
               >
-                <Download size={16} />
-                Download Resume
+                <Download size={15} />
+                <span>Download Resume</span>
               </a>
             </div>
           </motion.div>

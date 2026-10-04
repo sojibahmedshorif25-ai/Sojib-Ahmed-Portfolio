@@ -46,7 +46,7 @@ export default function Contact() {
       if (res.ok) {
         setIsSuccess(true);
         reset();
-        toast.success("Message sent! I'll reply within 2 hours. 🚀");
+        toast.success("Message sent! I'll reply within 15 minutes. 🚀");
       } else {
         throw new Error('Failed to send');
       }
@@ -79,10 +79,10 @@ export default function Contact() {
             <span>📬</span> Contact
           </div>
           <h2 className="section-heading">
-            Let's Build Something <span className="gradient-text">Extraordinary.</span>
+            <span className="gradient-text">Open to Opportunities.</span>
           </h2>
           <p className="section-subheading mx-auto text-center">
-            Have a project, idea, or opportunity? I'd love to hear about it.
+            I'm currently open to full-time, internship, freelance, and remote opportunities. If you're looking for a motivated Full-Stack Developer, I'd be happy to connect.
           </p>
         </motion.div>
 
@@ -112,7 +112,7 @@ export default function Contact() {
                 <div>
                   <div className="text-[10px] text-[var(--color-text-secondary)] mb-2 font-medium uppercase tracking-wider">Currently Available For:</div>
                   <div className="flex flex-wrap gap-1.5">
-                    {['Full-time', 'Freelance', 'Remote', 'Consulting'].map(type => (
+                    {['Full-Time', 'Internship', 'Freelance', 'Remote'].map(type => (
                       <span key={type} className="flex items-center gap-1 text-[10px] font-medium px-2 py-0.5 rounded-full"
                         style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.3)', color: '#10B981' }}>
                         <div className="status-dot" style={{ width: 4, height: 4 }} />
@@ -124,7 +124,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-2 pt-1">
                   <Clock size={12} className="text-[#7C3AED]" />
-                  <span className="text-[11px] text-[var(--color-text-secondary)]">Usually replies within 2 hours</span>
+                  <span className="text-[11px] text-[var(--color-text-secondary)]">Usually replies within 15 minutes</span>
                 </div>
               </div>
             </div>
@@ -230,7 +230,7 @@ export default function Contact() {
                     <CheckCircle2 size={32} className="text-[#10B981]" />
                   </motion.div>
                   <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-1">Message Sent!</h3>
-                  <p className="text-sm text-[var(--color-text-secondary)]">Got it! I'll reply within 2 hours.</p>
+                  <p className="text-sm text-[var(--color-text-secondary)]">Got it! I'll reply within 15 minutes.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
