@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, GitBranch, ArrowRight, Layers, Code, Server } from 'lucide-react';
+import { ExternalLink, ArrowRight, Layers, Code, Server, Key } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa6';
 import { projects } from '../../data/projects';
 
 type Category = 'all' | 'full-stack' | 'frontend' | 'backend';
@@ -32,7 +33,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section-padding relative" ref={ref}>
       {/* Background orbs */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 orb orb-cyan opacity-08" aria-hidden="true" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 orb orb-cyan opacity-08 pointer-events-none" aria-hidden="true" />
 
       <div className="container-custom">
         {/* Header */}
@@ -40,14 +41,14 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <div className="section-badge mx-auto w-fit mb-3">
-            <span>🚀</span> Projects
+            <span>🚀</span> Portfolio
           </div>
-          <h2 className="section-heading">Selected Work</h2>
-          <p className="section-subheading mx-auto text-center">
-            10+ projects built with modern technologies, with a focus on full-stack development, real-time systems, AI integrations, and performance.
+          <h2 className="section-heading">Featured & Production Projects</h2>
+          <p className="section-subheading mx-auto text-center max-w-2xl">
+            A showcase of enterprise full-stack systems, modern frontend applications, and high-performance backend API gateways.
           </p>
         </motion.div>
 
@@ -56,37 +57,37 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-10"
           role="tablist"
           aria-label="Project category filter"
         >
           {(['all', 'full-stack', 'frontend', 'backend'] as Category[]).map((cat) => {
             const Icon = categoryIcons[cat];
+            const isActive = activeFilter === cat;
             return (
               <motion.button
                 key={cat}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setActiveFilter(cat)}
                 role="tab"
-                aria-selected={activeFilter === cat}
-                className={`flex items-center gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium transition-all ${
-                  activeFilter === cat
-                    ? 'text-white shadow-lg'
-                    : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'
+                aria-selected={isActive}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 border ${
+                  isActive
+                    ? 'text-white border-primary shadow-[0_0_20px_rgba(124,58,237,0.4)]'
+                    : 'text-[var(--color-text-secondary)] border-[var(--color-border)] hover:text-[var(--color-text-primary)] hover:border-primary/40 bg-[var(--color-surface)]/60'
                 }`}
-                style={activeFilter === cat ? {
+                style={isActive ? {
                   background: 'linear-gradient(135deg, #7C3AED, #06B6D4)',
-                } : {
-                  background: 'var(--color-surface)',
-                  border: '1px solid var(--color-border)',
-                }}
+                } : undefined}
                 id={`filter-${cat}`}
               >
                 <Icon size={15} />
-                {categoryLabels[cat]}
-                <span className="text-xs opacity-70">
-                  ({cat === 'all' ? projects.length : projects.filter(p => p.category === cat).length})
+                <span>{categoryLabels[cat]}</span>
+                <span className={`text-[11px] px-2 py-0.5 rounded-full font-mono ${
+                  isActive ? 'bg-white/20 text-white' : 'bg-white/5 text-[var(--color-text-secondary)]'
+                }`}>
+                  {cat === 'all' ? projects.length : projects.filter(p => p.category === cat).length}
                 </span>
               </motion.button>
             );
@@ -101,24 +102,25 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 lg:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10"
           >
             {filtered.map((project, i) => (
               <motion.article
                 key={project.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 35 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
                 onHoverStart={() => setHoveredProject(project.id)}
                 onHoverEnd={() => setHoveredProject(null)}
-                className="project-card card group relative overflow-hidden"
+                className="project-card card group relative overflow-hidden flex flex-col justify-between"
                 style={{
                   '--project-color': project.color,
                 } as React.CSSProperties}
                 aria-label={`${project.title} - ${project.subtitle}`}
               >
                 {/* Top color line */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500"
+                <div 
+                  className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500 z-10"
                   style={{
                     background: hoveredProject === project.id
                       ? `linear-gradient(90deg, ${project.color}, ${project.accentColor})`
@@ -126,150 +128,149 @@ export default function Projects() {
                   }}
                 />
 
-                <div className="project-card-image w-full h-48 sm:h-56 relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  {/* Subtle overlay to ensure text contrast if placed over image, or just stylistic fade */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent opacity-90" />
+                <div>
+                  <div className="project-card-image w-full h-52 sm:h-64 relative overflow-hidden bg-[#0a0f1d]">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent opacity-90 pointer-events-none" />
+                  </div>
+
+                  <div className="p-6 md:p-8 pt-4">
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div>
+                        {/* Category badge */}
+                        <div className="flex items-center gap-2 mb-1.5">
+                          <span className="tech-badge text-[10px] uppercase tracking-wider font-bold">
+                            {project.category === 'full-stack' ? 'Full Stack' : project.category === 'frontend' ? 'Frontend' : 'Backend'}
+                          </span>
+                          <span className="text-[11px] text-[var(--color-text-secondary)] font-mono">{project.year}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-[var(--color-text-primary)] group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-xs text-[var(--color-text-secondary)] mt-0.5 leading-relaxed">{project.subtitle}</p>
+                      </div>
+
+                      {/* Number */}
+                      <div 
+                        className="text-3xl font-black opacity-15 font-mono select-none"
+                        style={{ color: project.color }}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </div>
+                    </div>
+
+                    {/* Problem / Solution */}
+                    <div className="mb-4 space-y-2 text-xs leading-relaxed">
+                      <div className="flex items-start gap-2 text-[var(--color-text-secondary)]">
+                        <span className="text-[#EC4899] font-bold flex-shrink-0">Problem:</span>
+                        <span>{project.problem}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-[var(--color-text-primary)]">
+                        <span className="text-[#10B981] font-bold flex-shrink-0">Solution:</span>
+                        <span>{project.solution}</span>
+                      </div>
+                    </div>
+
+                    {/* Demo Credentials if applicable */}
+                    {(project as any).credentials && (
+                      <div className="mb-4 p-3 rounded-xl bg-[#3178C6]/10 border border-[#3178C6]/30 text-xs text-[#93C5FD]">
+                        <div className="font-semibold text-white flex items-center gap-1.5 mb-1 text-[11px]">
+                          <Key size={13} className="text-[#60A5FA]" />
+                          <span>Demo Login Credentials:</span>
+                        </div>
+                        <div className="font-mono text-[11px] text-gray-300 space-y-0.5">
+                          <div><strong className="text-white">User:</strong> {(project as any).credentials.user}</div>
+                          <div><strong className="text-white">Admin:</strong> {(project as any).credentials.admin}</div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Key Features bullet points */}
+                    <div className="space-y-1.5 mb-5">
+                      {project.features.map((feat, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-xs text-[var(--color-text-secondary)]">
+                          <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: project.color }} />
+                          <span className="leading-snug">{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Tech Stack tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {project.techStack.map((tech) => (
+                        <span key={tech} className="tech-badge text-[10px]">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                <div className="p-6 md:p-8 pt-4">
-                  {/* Header */}
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div>
-                      {/* Category badge */}
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="tech-badge text-[10px]">{project.category === 'full-stack' ? 'Full Stack' : project.category === 'frontend' ? 'Frontend' : 'Backend'}</span>
-                        <span className="text-[11px] text-[var(--color-text-secondary)]">{project.year}</span>
-                      </div>
-                      <h3 className="text-lg font-bold text-[var(--color-text-primary)] group-hover:text-[#8B5CF6] transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">{project.subtitle}</p>
-                    </div>
+                {/* Footer with Clear Labeled Action Buttons and Real Logos */}
+                <div className="px-6 md:px-8 pb-6 pt-0 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--color-border)]/50 pt-4 mt-auto">
+                  <span className="text-[11px] text-[var(--color-text-secondary)]">
+                    Role: <span className="text-[var(--color-text-primary)] font-medium">{project.role}</span>
+                  </span>
 
-                    {/* Number */}
-                    <div className="text-3xl font-black opacity-10 font-mono"
-                      style={{ color: project.color }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </div>
-                  </div>
-
-                  {/* Problem / Solution preview */}
-                  <div className="mb-4 space-y-2">
-                    <div className="flex items-start gap-2">
-                      <span className="text-[11px] font-semibold text-[#EC4899] mt-0.5">Problem</span>
-                      <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">{project.problem}</p>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <span className="text-[11px] font-semibold text-[#10B981] mt-0.5">Solution</span>
-                      <p className="text-[11px] text-[var(--color-text-secondary)] leading-relaxed">{project.solution}</p>
-                    </div>
-                  </div>
-
-                  
-                  {/* Demo Login Credentials */}
-                  {(project as any).credentials && (
-                    <div className="mb-4 p-3 rounded-xl bg-[#3178C6]/10 border border-[#3178C6]/30 text-xs text-[#93C5FD]">
-                      <div className="font-semibold text-white flex items-center gap-1.5 mb-1 text-[11px]">
-                        <span>🔑</span> Demo Login Credentials:
-                      </div>
-                      <div className="font-mono text-[10px] text-gray-300 space-y-0.5">
-                        <div><strong className="text-white">User:</strong> {(project as any).credentials.user}</div>
-                        <div><strong className="text-white">Admin:</strong> {(project as any).credentials.admin}</div>
-                      </div>
-                    </div>
-                  )}
-                  {/* Key features (hover) */}
-                  <AnimatePresence>
-                    {hoveredProject === project.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="mb-4 overflow-hidden"
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    {/* Live Link Button */}
+                    {project.liveUrl && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_22px_rgba(124,58,237,0.5)] transition-all duration-200"
+                        style={{
+                          background: 'linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%)',
+                        }}
+                        aria-label={`${project.title} Live Link`}
                       >
-                        <div className="grid grid-cols-2 gap-1.5">
-                          {project.features.slice(0, 4).map(feature => (
-                            <div key={feature} className="flex items-center gap-1.5 text-[11px] text-[var(--color-text-secondary)]">
-                              <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: project.color }} />
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </motion.div>
+                        <ExternalLink size={14} className="text-white flex-shrink-0" />
+                        <span>Live Link</span>
+                      </motion.a>
                     )}
-                  </AnimatePresence>
 
-                  {/* Tech stack */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.techStack.slice(0, 5).map(tech => (
-                      <span key={tech} className="tech-badge text-[10px]">{tech}</span>
-                    ))}
-                    {project.techStack.length > 5 && (
-                      <span className="tech-badge text-[10px]">+{project.techStack.length - 5}</span>
-                    )}
-                  </div>
-
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-3 border-t border-[rgba(124,58,237,0.1)]">
-                    <span className="text-[11px] text-[var(--color-text-secondary)]">
-                      Role: <span className="text-[var(--color-text-primary)] font-medium">{project.role}</span>
-                    </span>
-
-                    <div className="flex items-center gap-1.5">
+                    {/* GitHub Link Button with Official GitHub Logo */}
+                    {project.githubUrl && (
                       <motion.a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-                        style={{ background: 'rgba(124,58,237,0.08)' }}
-                        aria-label={`${project.title} GitHub repository`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#0f172a] hover:bg-[#1e293b] border border-[var(--color-border)] hover:border-primary/50 transition-all duration-200 shadow-sm"
+                        aria-label={`${project.title} GitHub Link`}
                       >
-                        <GitBranch size={14} />
+                        <FaGithub size={15} className="text-white flex-shrink-0" />
+                        <span>GitHub Link</span>
                       </motion.a>
-                      {project.category !== 'backend' && (
-                        <motion.a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-                          style={{ background: 'rgba(124,58,237,0.08)' }}
-                          aria-label={`${project.title} live demo`}
-                        >
-                          <ExternalLink size={14} />
-                        </motion.a>
-                      )}
-                      {project.docsUrl && (
-                        <motion.a
-                          href={project.docsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05 }}
-                          className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all"
-                          style={{ background: 'rgba(124,58,237,0.08)', color: '#8B5CF6', border: '1px solid rgba(124,58,237,0.2)' }}
-                          aria-label={`${project.title} API docs`}
-                        >
-                          API Docs
-                          <ArrowRight size={10} />
-                        </motion.a>
-                      )}
-                    </div>
+                    )}
+
+                    {/* Secondary Repo (Client / Server) if available */}
+                    {project.docsUrl && (
+                      <motion.a
+                        href={project.docsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-1 px-3 py-2 rounded-xl text-xs font-mono text-[var(--color-text-secondary)] hover:text-white bg-[#0f172a]/60 border border-[var(--color-border)] hover:border-primary/40 transition-colors"
+                        aria-label={`${project.title} Secondary Repo`}
+                      >
+                        <FaGithub size={13} />
+                        <span>{project.category === 'backend' ? 'Client' : 'Server'}</span>
+                      </motion.a>
+                    )}
                   </div>
                 </div>
-
-                {/* Hover glow overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(circle at 50% 0%, ${project.color}05, transparent 60%)` }}
-                />
               </motion.article>
             ))}
           </motion.div>
@@ -283,19 +284,19 @@ export default function Projects() {
           className="text-center mt-12"
         >
           <p className="text-sm text-[var(--color-text-secondary)] mb-4">
-            All projects are available on GitHub with full documentation.
+            All projects are available on GitHub with complete source code and documentation.
           </p>
           <motion.a
             href="https://github.com/sojibahmedshorif25-ai"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.02, boxShadow: '0 8px 30px rgba(124,58,237,0.3)' }}
-            whileTap={{ scale: 0.98 }}
-            className="btn-secondary inline-flex"
+            whileHover={{ scale: 1.03, boxShadow: '0 8px 30px rgba(124,58,237,0.3)' }}
+            whileTap={{ scale: 0.97 }}
+            className="btn-secondary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm"
             id="view-all-github"
           >
-            <GitBranch size={16} />
-            View All on GitHub
+            <FaGithub size={17} />
+            <span>View All Repositories on GitHub</span>
             <ArrowRight size={15} />
           </motion.a>
         </motion.div>
